@@ -1,0 +1,19 @@
+﻿<Window x:Class="Movies.View.Main.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Movies.View.Main"
+        mc:Ignorable="d"
+        Title="RegistrationPage" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="LoginW" Content="Логин:" HorizontalAlignment="Left" Height="32" Margin="108,51,0,0" VerticalAlignment="Top" Width="54"/>
+        <Label x:Name="PassW" Content="Пароль:" HorizontalAlignment="Left" Height="32" Margin="106,84,0,0" VerticalAlignment="Top" Width="54"/>
+        <TextBox x:Name="Login" HorizontalAlignment="Left" Height="22" Margin="186,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+        <PasswordBox x:Name="Pass" HorizontalAlignment="Left" Height="16" Margin="184,89,0,0" VerticalAlignment="Top" Width="109"/>
+        <Label Content="Регистрация" HorizontalAlignment="Left" Height="34" Margin="120,8,0,0" VerticalAlignment="Top" Width="204"/>
+        <Button Content="Зарегистрироваться" HorizontalAlignment="Left" Height="24" Margin="320,63,0,0" VerticalAlignment="Top" Width="194" Click="Registrarion_click"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Height="56" Margin="359,151,0,0" VerticalAlignment="Top" Width="170" Click="Back_Click"/>
+
+    </Grid>
+</Window>
