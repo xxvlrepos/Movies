@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movies.View.Main"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="181.731" Width="482.28">
-    <Grid>
-        <Label x:Name="LoginW" Content="Логин:" HorizontalAlignment="Left" Height="32" Margin="108,51,0,0" VerticalAlignment="Top" Width="54"/>
-        <Label x:Name="PassW" Content="Пароль:" HorizontalAlignment="Left" Height="32" Margin="106,84,0,0" VerticalAlignment="Top" Width="54"/>
-        <TextBox x:Name="Login" HorizontalAlignment="Left" Height="22" Margin="186,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
-        <PasswordBox x:Name="Pass" HorizontalAlignment="Left" Height="16" Margin="184,89,0,0" VerticalAlignment="Top" Width="109"/>
-        <Button Content="Войти" HorizontalAlignment="Left" Height="26" Margin="331,51,0,0" VerticalAlignment="Top" Width="88" Click="Autorization_Click"/>
-        <Button Content="Регистрация" HorizontalAlignment="Left" Height="26" Margin="331,83,0,0" VerticalAlignment="Top" Width="88" Click="Registrarion_Click"/>
+        Title="MDB" Height="200" Width="300" Background="#FFF3F3F3">
+    <Grid Background="#FFF3F3F3">
+        <Label x:Name="LoginW" Content="Логин:" HorizontalAlignment="Left" Height="32" Margin="52,23,0,0" VerticalAlignment="Top" Width="54" FontFamily="Segoe UI Symbol"/>
+        <Label x:Name="PassW" Content="Пароль:" HorizontalAlignment="Left" Height="32" Margin="45,55,0,0" VerticalAlignment="Top" Width="54" FontFamily="Segoe UI Symbol"/>
+        <TextBox x:Name="Login" HorizontalAlignment="Left" Height="33" Margin="101,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
+        <PasswordBox x:Name="Pass" HorizontalAlignment="Left" Height="31" Margin="101,44,0,0" VerticalAlignment="Top" Width="132"/>
+        <Button Content="Войти" HorizontalAlignment="Left" Height="29" Margin="23,108,0,0" VerticalAlignment="Top" Width="115" Click="Autorization_Click" FontFamily="Segoe UI Semibold" FontWeight="Normal"/>
+        <Button Content="Регистрация" HorizontalAlignment="Left" Height="31" Margin="162,108,0,0" VerticalAlignment="Top" Width="116" Click="Registrarion_Click" FontFamily="Segoe UI Symbol"/>
     </Grid>
 </Window>

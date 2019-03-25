@@ -9,7 +9,11 @@
       Title="FilmsPage">
 
     <Grid>
-        <DataGrid x:Name="FilmsGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="381" Margin="-8,-3,0,-1" VerticalAlignment="Top" Width="788">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="329*"/>
+            <RowDefinition Height="48*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="FilmsGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="381" Margin="-8,-3,0,-1" VerticalAlignment="Top" Width="788" Background="#FFF3F3F3" Grid.RowSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название фильма" Width="150" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Режиссер" Width="150" Binding="{Binding producer_fio}"/>

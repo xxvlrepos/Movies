@@ -28,5 +28,11 @@ namespace Movies.View.Admin
         {
             frame.Navigate(new FilmsPage());
         }
+
+        private void Users_click(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new UsersPage());
+        }
+
     }
 }

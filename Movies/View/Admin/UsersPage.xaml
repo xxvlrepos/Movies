@@ -1,0 +1,28 @@
+﻿<Page x:Class="Movies.View.Admin.UsersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Movies.View.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UsersPage">
+
+    <Grid Background="#FFF3F3F3" Margin="0,0,-22,-18">
+        <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="386" Margin="1,2,0,0" VerticalAlignment="Top" Width="820" Background="#FFF3F3F3" MouseRightButtonDown="Rightbtn_MouseDown" SelectionMode="Single" SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Пользователь" Width="150" Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="Пароль" Width="150" Binding="{Binding Pass}"/>
+                <DataGridTextColumn Header="Статус пользователя" Width="200" Binding="{Binding IdStatus}"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu Background="#FFF3F3F3">
+                    <MenuItem x:Name="Edit" Click="Edit_Click" Header="Изменить" />
+                    <MenuItem x:Name="Delete" Click="Delete_Click" Header="Удалить" />
+                    
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <Button Content="Добавить пользователя" HorizontalAlignment="Left" Height="35" Margin="478,6,0,0" VerticalAlignment="Top" Width="293" Click="Button_Click"/>
+    </Grid>
+</Page>

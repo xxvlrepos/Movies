@@ -38,8 +38,6 @@ namespace Movies.View.Main
                 // Если пользователь найден ( != null), то определи какого он статуса и откорй соответствующие окно
                 if (user != null)
                 {
-                    MessageBox.Show($"Пользователь {user.Login} найден");
-
                     switch (user.IdStatus)
                     {
                         case (1):
