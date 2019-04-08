@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Movies.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,13 @@ namespace Movies.View.Admin
         public AddFilmWindow()
         {
             InitializeComponent();
+            ComboBoxItem();
         }
+
+        public void ComboBoxItem()
+        {
+            Producer.ItemsSource = new MyDB().Producers.ToList();
+        }
+        
     }
 }

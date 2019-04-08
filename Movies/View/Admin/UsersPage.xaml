@@ -9,10 +9,8 @@
       Title="UsersPage">
 
     <Grid Background="#FFF3F3F3" Margin="0,0,-22,-18">
-master
-
         <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="386" IsReadOnly="True" CanUserDeleteRows="True" VerticalAlignment="Top" Width="788" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False">
- master
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Пользователь" Width="150" Binding="{Binding Login}"/>
                 <DataGridTextColumn Header="Пароль" Width="150" Binding="{Binding Pass}"/>
@@ -21,7 +19,6 @@ master
             <DataGrid.ContextMenu>
                 <ContextMenu Background="#FFF3F3F3">
                     <MenuItem x:Name="Add" Click="Add_Click" Header="Добавить"/>
-                    <MenuItem x:Name="Edit" Click="Edit_Click" Header="Изменить" />
                     <MenuItem x:Name="Delete" Click="Delete_Click" Header="Удалить" />
                 </ContextMenu>
             </DataGrid.ContextMenu>

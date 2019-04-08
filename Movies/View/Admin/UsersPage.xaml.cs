@@ -61,54 +61,55 @@ namespace Movies.View.Admin
             {
                 MessageBox.Show(ex.Message);
 
-        }
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            // Получаем выбранного пользователя с SelectedValue
-            Users user = (Users)UsersGrid.SelectedValue;
-
-            // Если выбрали пользователя, то удали его
-            if (user != null)
-            {
-                try
-                {
-                    // Создаем подключение к БД
-                    using (MyDB db = new MyDB())
-                    {
-                        db.Users.Remove(db.Users.FirstOrDefault(i => i.IdUser == user.IdUser)); // Удаляем БД
-                        db.SaveChanges(); // Сохраняем БД
-
-                        UsersGrid.ItemsSource = db.Users.ToList(); // Прогружаем список пользователей
-                    }
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }   
-
             }
-        }
+            //private void Delete_Click(object sender, RoutedEventArgs e)
+            //{
+            //    // Получаем выбранного пользователя с SelectedValue
+            //    Users user = (Users)UsersGrid.SelectedValue;
 
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            //db.
-            try
-            {
-                var i = (Users)(UsersGrid.SelectedValue);
-                if (i != null)
-                {
-                    using (MyDB db = new MyDB())
-                    {
-                        db.Entry(i).State = System.Data.Entity.EntityState.Modified;
-                        db.SaveChanges();
-                        LoadDB();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //    // Если выбрали пользователя, то удали его
+            //    if (user != null)
+            //    {
+            //        try
+            //        {
+            //            // Создаем подключение к БД
+            //            using (MyDB db = new MyDB())
+            //            {
+            //                db.Users.Remove(db.Users.FirstOrDefault(i => i.IdUser == user.IdUser)); // Удаляем БД
+            //                db.SaveChanges(); // Сохраняем БД
+
+            //                UsersGrid.ItemsSource = db.Users.ToList(); // Прогружаем список пользователей
+            //            }
+            //        }
+            //        catch(Exception ex)
+            //        {
+            //            MessageBox.Show(ex.Message);
+            //        }   
+
+            //    }
+            //}
+
+            //private void edit_click(object sender, routedeventargs e)
+            //{
+            //    //db.
+            //    try
+            //    {
+            //        var i = (users)(usersgrid.selectedvalue);
+            //        if (i != null)
+            //        {
+            //            using (mydb db = new mydb())
+            //            {
+            //                db.entry(i).state = system.data.entity.entitystate.modified;
+            //                db.savechanges();
+            //                loaddb();
+            //            }
+            //        }
+            //    }
+            //    catch (exception ex)
+            //    {
+            //        messagebox.show(ex.message);
+            //    }
+            //}
         }
     }
 }

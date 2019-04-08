@@ -15,10 +15,8 @@
         <Label x:Name="Country" Content="Страна:" HorizontalAlignment="Left" Height="29" Margin="30,180,0,0" VerticalAlignment="Top" Width="105"/>
         <Label x:Name="Rating" Content="Рейтинг:" HorizontalAlignment="Left" Height="29" Margin="30,210,0,0" VerticalAlignment="Top" Width="105"/>
         <TextBox x:Name="Name" HorizontalAlignment="Left" Height="29" Margin="165,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="107"/>
-        <TextBox x:Name="Producer" HorizontalAlignment="Left" Height="29" Margin="164,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="107"/>
         <DatePicker x:Name="Year" HorizontalAlignment="Left" Height="23" Margin="165,90,0,0" VerticalAlignment="Top" Width="108"/>
-        <TextBox x:Name="Producer_Copy" HorizontalAlignment="Left" Height="29" Margin="163,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="107"/>
-        <ComboBox HorizontalAlignment="Left" Height="19" Margin="168,157,0,0" VerticalAlignment="Top" Width="110"/>
-        <Image HorizontalAlignment="Left" Height="130" Margin="432,144,0,0" VerticalAlignment="Top" Width="133"/>
+        <TextBox x:Name="Producer_Copy" HorizontalAlignment="Left" Height="29" Margin="165,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="107"/>
+        <ComboBox DisplayMemberPath="Family" x:Name="Producer" HorizontalAlignment="Left" Height="100" IsEditable="True" Margin="385,106,0,0" VerticalAlignment="Top" Width="224" />
     </Grid>
 </Window>
