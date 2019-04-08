@@ -1,0 +1,41 @@
+﻿<Page x:Class="Movies.View.User.FilmsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Movies.View.User"
+      mc:Ignorable="d" 
+      d:DesignHeight="420" d:DesignWidth="790"
+      Title="FilmsPage">
+
+    <Grid>
+        <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="785">
+            <ListBox.Resources>
+                <Style TargetType="ListBoxItem">
+                    <Style.Triggers>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter Property="IsSelected" Value="True"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.Resources>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel Margin="150,0,100,0">
+                        <Border BorderBrush="Black" BorderThickness="1">
+                            <StackPanel Height="auto" Width="450" VerticalAlignment="Center">
+                                <TextBlock FontSize="20" HorizontalAlignment="Center" Text="{Binding Path=Name}" />
+                                <TextBlock FontSize="16" HorizontalAlignment="Center" Text="{Binding Producers.GetProducerFio}"/>
+                                <Image Height="200" Width="400" Margin="0,10" VerticalAlignment="Top" Source="{Binding Path=Poster}" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Рейтинг: "/>
+                                    <Label Content="4"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
