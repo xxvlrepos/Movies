@@ -27,7 +27,7 @@ namespace Movies.View.Admin
             LoadDB();
         }
 
-        private void LoadDB()
+        public void LoadDB()
         {
             using (MyDB db = new MyDB())
             {
@@ -36,13 +36,26 @@ namespace Movies.View.Admin
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
-            Window wind = new  AddUsersWindow();
+            Window wind = new AddUsersWindow();
             wind.Show();
-            
         }
 
+        private void Del<T>(ref T user)
+            where T : class
+
+        {
+            using (MyDB db = new MyDB())
+            {
+                {
+                    db.Entry(user).State = System.Data.Entity.EntityState.Deleted; // То удали из бд
+                    db.SaveChanges();
+
+                    UsersGrid.ItemsSource = db.Users.ToList();
+                }
+            }
+        }
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             // Получаем выбранного пользователя с SelectedValue
@@ -66,12 +79,30 @@ namespace Movies.View.Admin
                 {
                     MessageBox.Show(ex.Message);
                 }   
+
             }
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             //db.
+            try
+            {
+                var i = (Users)(UsersGrid.SelectedValue);
+                if (i != null)
+                {
+                    using (MyDB db = new MyDB())
+                    {
+                        db.Entry(i).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                        LoadDB();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

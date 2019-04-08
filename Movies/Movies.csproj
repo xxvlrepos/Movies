@@ -74,6 +74,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\Admin\AddFilmWindow.xaml.cs">
+      <DependentUpon>AddFilmWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\AddUsersWindow.xaml.cs">
       <DependentUpon>AddUsersWindow.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
     <Compile Include="View\User\UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Admin\AddFilmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Admin\AddUsersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
