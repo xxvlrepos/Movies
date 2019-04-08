@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movies.View.Main"
         mc:Ignorable="d"
-        Title="MDB" Height="200" Width="300" Background="#FFF3F3F3">
+        Title="MDB" Height="200" Width="300" Background="#FFF3F3F3" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FFF3F3F3">
         <Label x:Name="LoginW" Content="Логин:" HorizontalAlignment="Left" Height="32" Margin="52,23,0,0" VerticalAlignment="Top" Width="54" FontFamily="Segoe UI Symbol"/>
         <Label x:Name="PassW" Content="Пароль:" HorizontalAlignment="Left" Height="32" Margin="45,55,0,0" VerticalAlignment="Top" Width="54" FontFamily="Segoe UI Symbol"/>

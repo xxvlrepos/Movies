@@ -29,6 +29,7 @@ namespace Movies.View.Admin
 
         private void LoadDB()
         {
+            //
 
             using (MyDB db = new MyDB())
             {
