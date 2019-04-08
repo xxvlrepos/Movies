@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Movies.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,19 +11,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Movies.View.User
 {
     /// <summary>
-    /// Логика взаимодействия для UserWindow.xaml
+    /// Логика взаимодействия для FilmsPage.xaml
     /// </summary>
-    public partial class UserWindow : Window
+    public partial class FilmsPage : Page
     {
-        public UserWindow()
+        public FilmsPage()
         {
             InitializeComponent();
-            frame.Navigate(new FilmsPage());
+
+            load();
         }
+
+        // Метод для загрузки данных с БД
+        void load()
+        {
+            // Загружаем фильмы из БД
+            list.ItemsSource = new MyDB().Films.ToList();
+        }
+
     }
 }

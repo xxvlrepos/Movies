@@ -41,27 +41,7 @@ namespace Movies.View.Admin
             Window wind = new AddUsersWindow();
             wind.Show();
         }
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
 
-                var user = (DataModel.Users)(UsersGrid.SelectedValue);
-                using (MyDB db = new MyDB())
-                {
-                    db.Users.Remove(db.Users.FirstOrDefault(s => s.IdUser == user.IdUser));
-                    db.SaveChanges();
-                    LoadDB();
-                }
-            }
-
-
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-
-        }
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             // Получаем выбранного пользователя с SelectedValue
