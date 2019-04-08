@@ -42,20 +42,6 @@ namespace Movies.View.Admin
             wind.Show();
         }
 
-        private void Del<T>(ref T user)
-            where T : class
-
-        {
-            using (MyDB db = new MyDB())
-            {
-                {
-                    db.Entry(user).State = System.Data.Entity.EntityState.Deleted; // То удали из бд
-                    db.SaveChanges();
-
-                    UsersGrid.ItemsSource = db.Users.ToList();
-                }
-            }
-        }
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             // Получаем выбранного пользователя с SelectedValue
