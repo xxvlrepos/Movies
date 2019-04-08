@@ -9,7 +9,10 @@
       Title="UsersPage">
 
     <Grid Background="#FFF3F3F3" Margin="0,0,-22,-18">
-        <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="386" Margin="1,2,0,0" VerticalAlignment="Top" Width="820" Background="#FFF3F3F3"  SelectionMode="Single" SelectionUnit="FullRow">
+master
+
+        <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="386" IsReadOnly="True" CanUserDeleteRows="True" VerticalAlignment="Top" Width="788" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False">
+ master
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Пользователь" Width="150" Binding="{Binding Login}"/>
                 <DataGridTextColumn Header="Пароль" Width="150" Binding="{Binding Pass}"/>

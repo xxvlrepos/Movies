@@ -27,27 +27,12 @@ namespace Movies.View.Admin
             LoadDB();
         }
 
+        // Метод для загрузки данных из БД
         private void LoadDB()
         {
-            //
-
+            // Создаем подключение к бд
             using (MyDB db = new MyDB())
-            {
-                List<Films> films = new MyDB().Films.ToList();
-
-                foreach (var item in films)
-                {
-                    item.Genre = db.Genres.FirstOrDefault(i => i.IdGenre == item.IdGenre).GenreName;
-
-                    var producer = db.Producers.FirstOrDefault(i => i.idProducer == item.IdProducer);
-                    item.producer_fio = $"{producer.Family} {producer.Name} {producer.Surname}";
-                }
-
-                FilmsGrid.ItemsSource = films;
-            }
-                
-
-            
+                FilmsGrid.ItemsSource = new MyDB().Films.ToList(); // Загружаем в grid.itemssource названия фильмов
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)

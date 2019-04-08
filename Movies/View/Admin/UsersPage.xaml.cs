@@ -56,9 +56,36 @@ namespace Movies.View.Admin
             }
 
 
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
+        }
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            // Получаем выбранного пользователя с SelectedValue
+            Users user = (Users)UsersGrid.SelectedValue;
+
+            // Если выбрали пользователя, то удали его
+            if (user != null)
+            {
+                try
+                {
+                    // Создаем подключение к БД
+                    using (MyDB db = new MyDB())
+                    {
+                        db.Users.Remove(db.Users.FirstOrDefault(i => i.IdUser == user.IdUser)); // Удаляем БД
+                        db.SaveChanges(); // Сохраняем БД
+
+                        UsersGrid.ItemsSource = db.Users.ToList(); // Прогружаем список пользователей
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }   
+
             }
         }
 

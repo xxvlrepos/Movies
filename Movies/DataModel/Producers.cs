@@ -14,12 +14,22 @@ namespace Movies.DataModel
     
     public partial class Producers
     {
+
+        #region Для вывода в контролы
+
+        public string GetProducerFio
+        {
+            get => $"{Family} {Name} {Surname}";
+        }
+
+        #endregion
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Producers()
         {
             this.Films = new HashSet<Films>();
-        }
-    
+        }           
+
         public int idProducer { get; set; }
         public string Name { get; set; }
         public string Family { get; set; }
