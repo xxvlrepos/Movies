@@ -9,7 +9,7 @@
       Title="UsersPage">
 
     <Grid Background="#FFF3F3F3" Margin="0,0,-22,-18">
-        <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="386" Margin="1,2,0,0" VerticalAlignment="Top" Width="820" Background="#FFF3F3F3" SelectionMode="Single" SelectionUnit="FullRow">
+        <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="386" Margin="1,2,0,0" VerticalAlignment="Top" Width="820" Background="#FFF3F3F3"  SelectionMode="Single" SelectionUnit="FullRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Пользователь" Width="150" Binding="{Binding Login}"/>
                 <DataGridTextColumn Header="Пароль" Width="150" Binding="{Binding Pass}"/>
@@ -17,11 +17,11 @@
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu Background="#FFF3F3F3">
+                    <MenuItem x:Name="Add" Click="Add_Click" Header="Добавить"/>
                     <MenuItem x:Name="Edit" Click="Edit_Click" Header="Изменить" />
                     <MenuItem x:Name="Delete" Click="Delete_Click" Header="Удалить" />
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>
-        <Button Content="Добавить пользователя" HorizontalAlignment="Left" Height="35" Margin="478,6,0,0" VerticalAlignment="Top" Width="293" Click="Button_Click"/>
     </Grid>
 </Page>

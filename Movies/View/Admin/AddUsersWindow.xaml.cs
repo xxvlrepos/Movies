@@ -41,6 +41,7 @@ namespace Movies.View.Admin
                 {
                     db.Users.Add(user);
                     db.SaveChanges();
+                    
                     added = true;
                 }
 
@@ -53,6 +54,7 @@ namespace Movies.View.Admin
                 else
                     MessageBox.Show($"Ошибка добавления!");
             }
+            
             this.Close();
         }
     }
