@@ -29,7 +29,6 @@ namespace Movies.View.Admin
 
         private void LoadDB()
         {
-
             using (MyDB db = new MyDB())
             {
                 List<Users> users = new MyDB().Users.ToList();
@@ -50,7 +49,6 @@ namespace Movies.View.Admin
         {
             using (MyDB db = new MyDB())
             {
-
                 {
                     db.Entry(user).State = System.Data.Entity.EntityState.Deleted; // То удали из бд
                     db.SaveChanges();
@@ -76,7 +74,7 @@ namespace Movies.View.Admin
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            db.
+            //db.
         }
     }
 }
