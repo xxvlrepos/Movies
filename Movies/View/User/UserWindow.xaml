@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movies.View.User"
         mc:Ignorable="d"
-        Title="UserWindow" Height="450" Width="800">
+        Title="UserWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="420" Width="790" Background="#FFF3F3F3"/>
     </Grid>
 </Window>

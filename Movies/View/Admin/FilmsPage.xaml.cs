@@ -30,9 +30,7 @@ namespace Movies.View.Admin
         // Метод для загрузки данных из БД
         private void LoadDB()
         {
-            // Создаем подключение к бд
-            using (MyDB db = new MyDB())
-                FilmsGrid.ItemsSource = new MyDB().Films.ToList(); // Загружаем в grid.itemssource названия фильмов
+            FilmsGrid.ItemsSource = new MyDB().Films.ToList(); // Загружаем в grid.itemssource названия фильмов
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
