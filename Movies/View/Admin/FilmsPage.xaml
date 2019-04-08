@@ -13,12 +13,12 @@
             <RowDefinition Height="329*"/>
             <RowDefinition Height="48*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="FilmsGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="381" Margin="-8,-3,0,-1" VerticalAlignment="Top" Width="788" Background="#FFF3F3F3" Grid.RowSpan="2">
+        <DataGrid x:Name="FilmsGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="381" IsReadOnly="True" CanUserDeleteRows="True" VerticalAlignment="Top" Width="788" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" Grid.RowSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Название фильма" Width="150" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Режиссер" Width="150" Binding="{Binding producer_fio}"/>
-                <DataGridTextColumn Header="Жанр" Width="200" Binding="{Binding Genre}"/>
-                <DataGridTextColumn Header="Дата" Width="200" Binding="{Binding date}"/>
+                <DataGridTextColumn Header="Название фильма" Width="190" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Режиссер" Width="245" Binding="{Binding Producers.GetProducerFio}"/>
+                <DataGridTextColumn Header="Жанр" Width="200" Binding="{Binding Genres.GenreName}"/>
+                <DataGridTextColumn Header="Дата" Width="65" Binding="{Binding date}"/>
                 <DataGridTextColumn Header="Страна" Width="200" Binding="{Binding Country}"/>
             </DataGrid.Columns>
         </DataGrid>
