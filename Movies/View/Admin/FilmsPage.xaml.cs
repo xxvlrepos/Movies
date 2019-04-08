@@ -34,6 +34,55 @@ namespace Movies.View.Admin
             using (MyDB db = new MyDB())
                 FilmsGrid.ItemsSource = new MyDB().Films.ToList(); // Загружаем в grid.itemssource названия фильмов
         }
-        
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var film = (DataModel.Films)(FilmsGrid.SelectedValue);
+            using (MyDB db = new MyDB())
+            {
+                db.Films.Remove(db.Films.FirstOrDefault(s => s.IdFilm == film.IdFilm));
+                db.SaveChanges();
+                LoadDB();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                var i = FilmsGrid.SelectedValue;
+                if (i != null)
+                {
+                    using (MyDB db = new MyDB())
+                    {
+                        db.Entry(i).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+
+
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            Window wind = new AddFilmWindow();
+            wind.Show();
+        }
     }
 }
