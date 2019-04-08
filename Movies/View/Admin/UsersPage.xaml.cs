@@ -59,29 +59,28 @@ namespace Movies.View.Admin
         }
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            //// Получаем выбранного пользователя с SelectedValue
-            //Users user = (Users)UsersGrid.SelectedValue;
+            // Получаем выбранного пользователя с SelectedValue
+            Users user = (Users)UsersGrid.SelectedValue;
 
-            //// Если выбрали пользователя, то удали его
-            //if (user != null)
-            //{
-            //    db.Users.Remove(db.Users.FirstOrDefault(i => i.IdUser == user.IdUser));
-            //}
+            // Если выбрали пользователя, то удали его
+            if (user != null)
+            {
+                try
+                {
+                    // Создаем подключение к БД
+                    using (MyDB db = new MyDB())
+                    {
+                        db.Users.Remove(db.Users.FirstOrDefault(i => i.IdUser == user.IdUser)); // Удаляем БД
+                        db.SaveChanges(); // Сохраняем БД
 
-
-            //MyDB db = new MyDB();
-            
-       
-            //Users user = (Users)UsersGrid.SelectedValue;
-            //Del<Users>(ref user);
-
-            //(Users)UsersGrid.SelectedItem
-
-            //MyDB db = new MyDB();
-            //Users user = (Users)UsersGrid.SelectedValue;
-            //db.Entry(user).State = System.Data.Entity.EntityState.Deleted;
-            //db.SaveChanges();
-            //UsersGrid.ItemsSource = db.Users.ToList();
+                        UsersGrid.ItemsSource = db.Users.ToList(); // Прогружаем список пользователей
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }   
+            }
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
