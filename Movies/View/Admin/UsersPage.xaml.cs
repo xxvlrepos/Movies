@@ -59,11 +59,23 @@ namespace Movies.View.Admin
         }
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            //// Получаем выбранного пользователя с SelectedValue
+            //Users user = (Users)UsersGrid.SelectedValue;
 
+            //// Если выбрали пользователя, то удали его
+            //if (user != null)
+            //{
+            //    db.Users.Remove(db.Users.FirstOrDefault(i => i.IdUser == user.IdUser));
+            //}
+
+
+            //MyDB db = new MyDB();
+            
        
-            Users user = (Users)UsersGrid.SelectedValue;
-            Del<Users>(ref user);
+            //Users user = (Users)UsersGrid.SelectedValue;
+            //Del<Users>(ref user);
 
+            //(Users)UsersGrid.SelectedItem
 
             //MyDB db = new MyDB();
             //Users user = (Users)UsersGrid.SelectedValue;
