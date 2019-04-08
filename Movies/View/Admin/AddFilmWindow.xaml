@@ -19,5 +19,6 @@
         <DatePicker x:Name="Year" HorizontalAlignment="Left" Height="23" Margin="165,90,0,0" VerticalAlignment="Top" Width="108"/>
         <TextBox x:Name="Producer_Copy" HorizontalAlignment="Left" Height="29" Margin="163,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="107"/>
         <ComboBox HorizontalAlignment="Left" Height="19" Margin="168,157,0,0" VerticalAlignment="Top" Width="110"/>
+        <Image HorizontalAlignment="Left" Height="130" Margin="432,144,0,0" VerticalAlignment="Top" Width="133"/>
     </Grid>
 </Window>
