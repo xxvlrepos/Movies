@@ -32,8 +32,6 @@ namespace Movies.DataModel
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ActorsFilm> ActorsFilm { get; set; }
-        public virtual Genres Genres { get; set; }
-        public virtual Producers Producers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ratings> Ratings { get; set; }
     }

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="463b6037e0f048ce9fa1c470c2e0a4b4" Name="Diagram1">
+      <Diagram DiagramId="4744a8fd4027474fb99aaf5bcd50f49f" Name="Diagram1">
         <EntityTypeShape EntityType="MoviesModel.Actors" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MoviesModel.ActorsFilm" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="MoviesModel.Films" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
@@ -12,11 +12,10 @@
         <EntityTypeShape EntityType="MoviesModel.Producers" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MoviesModel.Ratings" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MoviesModel.Status" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MoviesModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="MoviesModel.Users" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
         <AssociationConnector Association="MoviesModel.FK_ActorsFilm_Actors" ManuallyRouted="false" />
         <AssociationConnector Association="MoviesModel.FK_ActorsFilm_Films" ManuallyRouted="false" />
-        <AssociationConnector Association="MoviesModel.FK_Films_Genres" ManuallyRouted="false" />
+        <AssociationConnector Association="MoviesModel.FK_Films_Genres1" ManuallyRouted="false" />
         <AssociationConnector Association="MoviesModel.FK_Films_Producers" ManuallyRouted="false" />
         <AssociationConnector Association="MoviesModel.FK_Ratings_Films" ManuallyRouted="false" />
         <AssociationConnector Association="MoviesModel.FK_Ratings_Users" ManuallyRouted="false" />
