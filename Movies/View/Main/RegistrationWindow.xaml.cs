@@ -48,7 +48,7 @@ namespace Movies.View.Main
                     try
                     {
                         db.Users.Add(new Users(Login.Text, Pass.Password));
-                        db.SaveChanges();
+                        db.SaveChanges();                        
 
                         MessageBox.Show($"Пользователь успешно зарегистрирован");
                         GoBack();

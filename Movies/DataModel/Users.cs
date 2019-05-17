@@ -11,21 +11,19 @@ namespace Movies.DataModel
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Users
     {
-
-        public Users(string log, string pass)
-        {
-            Login = log;
-            Pass = pass;
-            IdStatus = 1;
-
-        }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
             this.Ratings = new HashSet<Ratings>();
+        }
+
+        public Users(string login, string password)
+        {
+            this.Login = login;
+            this.Pass = password;
         }
     
         public int IdUser { get; set; }
