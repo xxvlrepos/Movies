@@ -23,7 +23,6 @@ namespace Movies.View.Main
         public LoginWindow()
         {
             InitializeComponent();
-            Login.Focus();
         }
 
 
