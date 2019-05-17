@@ -29,14 +29,21 @@ namespace Movies.View.Main
 
         private async Task<Users> GetUserAsync(string login, string password)
         {
-            using (MyDB db = new MyDB())
+            try
             {
-                return await Task.Run(() =>
+                using (MyDB db = new MyDB())
                 {
-                    return db.Users.FirstOrDefault(i => i.Login == login && i.Pass == password);
-                });
+                    return await Task.Run(() =>
+                    {
+                        return db.Users.FirstOrDefault(i => i.Login == login && i.Pass == password);
+                    });
+                }
             }
-
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
         //Событие на клик кнопки авторизация

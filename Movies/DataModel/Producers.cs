@@ -14,26 +14,19 @@ namespace Movies.DataModel
     
     public partial class Producers
     {
-
-        #region Для вывода в контролы
-
-        public string GetProducerFio
-        {
-            get => $"{Family} {Name} {Surname}";
-        }
-
-        #endregion
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Producers()
         {
             this.Films = new HashSet<Films>();
-        }           
-
+        }
+    
         public int idProducer { get; set; }
         public string Name { get; set; }
         public string Family { get; set; }
         public string Surname { get; set; }
         public string Gender { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Films> Films { get; set; }
     }
 }

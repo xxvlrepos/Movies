@@ -118,7 +118,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Films_Genres1">
+        <Association Name="FK_Films_Genres">
           <End Role="Genres" Type="Self.Genres" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -133,9 +133,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Films_Producers">
-          <End Role="Producers" Type="Self.Producers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Producers" Type="Self.Producers" Multiplicity="1" />
           <End Role="Films" Type="Self.Films" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producers">
@@ -206,7 +204,7 @@
             <End Role="Films" EntitySet="Films" />
             <End Role="ActorsFilm" EntitySet="ActorsFilm" />
           </AssociationSet>
-          <AssociationSet Name="FK_Films_Genres1" Association="Self.FK_Films_Genres1">
+          <AssociationSet Name="FK_Films_Genres" Association="Self.FK_Films_Genres">
             <End Role="Genres" EntitySet="Genres" />
             <End Role="Films" EntitySet="Films" />
           </AssociationSet>
@@ -267,7 +265,7 @@
           <Property Name="Poster" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ActorsFilm" Relationship="Self.FK_ActorsFilm_Films" FromRole="Films" ToRole="ActorsFilm" />
-          <NavigationProperty Name="Genres" Relationship="Self.FK_Films_Genres1" FromRole="Films" ToRole="Genres" />
+          <NavigationProperty Name="Genres" Relationship="Self.FK_Films_Genres" FromRole="Films" ToRole="Genres" />
           <NavigationProperty Name="Producers" Relationship="Self.FK_Films_Producers" FromRole="Films" ToRole="Producers" />
           <NavigationProperty Name="Ratings" Relationship="Self.FK_Ratings_Films" FromRole="Films" ToRole="Ratings" />
         </EntityType>
@@ -277,7 +275,7 @@
           </Key>
           <Property Name="IdGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GenreName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Films" Relationship="Self.FK_Films_Genres1" FromRole="Genres" ToRole="Films" />
+          <NavigationProperty Name="Films" Relationship="Self.FK_Films_Genres" FromRole="Genres" ToRole="Films" />
         </EntityType>
         <EntityType Name="Producers">
           <Key>
@@ -288,6 +286,7 @@
           <Property Name="Family" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Films" Relationship="Self.FK_Films_Producers" FromRole="Producers" ToRole="Films" />
         </EntityType>
         <EntityType Name="Ratings">
           <Key>
@@ -358,7 +357,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Films_Genres1">
+        <Association Name="FK_Films_Genres">
           <End Role="Genres" Type="Self.Genres" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -373,9 +372,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Films_Producers">
-          <End Role="Producers" Type="Self.Producers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Producers" Type="Self.Producers" Multiplicity="1" />
           <End Role="Films" Type="Self.Films" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producers">
@@ -446,7 +443,7 @@
             <End Role="Films" EntitySet="Films" />
             <End Role="ActorsFilm" EntitySet="ActorsFilm" />
           </AssociationSet>
-          <AssociationSet Name="FK_Films_Genres1" Association="Self.FK_Films_Genres1">
+          <AssociationSet Name="FK_Films_Genres" Association="Self.FK_Films_Genres">
             <End Role="Genres" EntitySet="Genres" />
             <End Role="Films" EntitySet="Films" />
           </AssociationSet>

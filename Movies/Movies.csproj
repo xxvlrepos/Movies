@@ -219,6 +219,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="videoplayer_112441.ico" />
+    <Resource Include="View\Main\icon.png" />
+    <Resource Include="View\Main\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DataModel\MyDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MyDB.edmx</DependentUpon>
@@ -229,14 +237,6 @@
       <DependentUpon>MyDB.edmx</DependentUpon>
       <LastGenOutput>MyDB.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="videoplayer_112441.ico" />
-    <Resource Include="View\Main\icon.png" />
-    <Resource Include="View\Main\1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
