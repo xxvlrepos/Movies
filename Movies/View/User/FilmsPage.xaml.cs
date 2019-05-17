@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,7 +26,7 @@ namespace Movies.View.User
         {
             InitializeComponent();
 
-            load();
+            //load();
         }
 
         // Метод для загрузки данных с БД
@@ -35,5 +36,33 @@ namespace Movies.View.User
             list.ItemsSource = new MyDB().Films.ToList();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //await Task.Run(() =>
+            //{
+            //    for (int i = 0; i <= 100; i++)
+            //    {
+            //        list.Items.Add("kek");
+            //        list.Items.Refresh();
+            //        //Thread.Sleep(500);
+            //    }
+            //});
+
+
+            //for (int i = 0; i <= 100; i++)
+            //{
+            //    list.Items.Add("kek");
+            //    list.Items.Refresh();
+                
+            //    Thread.Sleep(50);
+            //}
+
+
+            // load();
+
+            //var a = (Films)list.SelectedItem;
+
+            //MessageBox.Show(a.IdFilm.ToString());
+        }
     }
 }

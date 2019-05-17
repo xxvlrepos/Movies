@@ -21,7 +21,7 @@
             </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <DockPanel Margin="150,0,100,0">
+                    <DockPanel Margin="150,0,100,0" >
                         <Border BorderBrush="Black" BorderThickness="1">
                             <StackPanel Height="auto" Width="450" VerticalAlignment="Center">
                                 <TextBlock FontSize="20" HorizontalAlignment="Center" Text="{Binding Path=Name}" />
@@ -37,5 +37,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListView>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="183,400,0,-12" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
 </Page>
