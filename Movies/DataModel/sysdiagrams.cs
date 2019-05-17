@@ -12,21 +12,12 @@ namespace Movies.DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Producers
+    public partial class sysdiagrams
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Producers()
-        {
-            this.Films = new HashSet<Films>();
-        }
-    
-        public int idProducer { get; set; }
-        public string Name { get; set; }
-        public string Family { get; set; }
-        public string Surname { get; set; }
-        public string Gender { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Films> Films { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

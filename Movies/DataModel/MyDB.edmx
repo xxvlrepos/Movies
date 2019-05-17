@@ -31,11 +31,11 @@
           <Property Name="IdFilm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdProducer" Type="int" Nullable="false" />
-          <Property Name="Year" Type="date" Nullable="false" />
+          <Property Name="Year" Type="date" />
           <Property Name="IdGenre" Type="int" Nullable="false" />
           <Property Name="Rating" Type="int" />
           <Property Name="Poster" Type="image" />
-          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Genres">
           <Key>
@@ -70,6 +70,16 @@
           </Key>
           <Property Name="IdStatus" Type="int" Nullable="false" />
           <Property Name="StatusName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -108,7 +118,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Films_Genres1">
+        <Association Name="FK_Films_Genres">
           <End Role="Genres" Type="Self.Genres" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -123,9 +133,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Films_Producers">
-          <End Role="Producers" Type="Self.Producers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Producers" Type="Self.Producers" Multiplicity="1" />
           <End Role="Films" Type="Self.Films" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producers">
@@ -186,6 +194,7 @@
           <EntitySet Name="Producers" EntityType="Self.Producers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ratings" EntityType="Self.Ratings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ActorsFilm_Actors" Association="Self.FK_ActorsFilm_Actors">
             <End Role="Actors" EntitySet="Actors" />
@@ -195,7 +204,7 @@
             <End Role="Films" EntitySet="Films" />
             <End Role="ActorsFilm" EntitySet="ActorsFilm" />
           </AssociationSet>
-          <AssociationSet Name="FK_Films_Genres1" Association="Self.FK_Films_Genres1">
+          <AssociationSet Name="FK_Films_Genres" Association="Self.FK_Films_Genres">
             <End Role="Genres" EntitySet="Genres" />
             <End Role="Films" EntitySet="Films" />
           </AssociationSet>
@@ -250,13 +259,13 @@
           <Property Name="IdFilm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdProducer" Type="Int32" Nullable="false" />
-          <Property Name="Year" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Year" Type="DateTime" Precision="0" />
           <Property Name="IdGenre" Type="Int32" Nullable="false" />
           <Property Name="Rating" Type="Int32" />
           <Property Name="Poster" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ActorsFilm" Relationship="Self.FK_ActorsFilm_Films" FromRole="Films" ToRole="ActorsFilm" />
-          <NavigationProperty Name="Genres" Relationship="Self.FK_Films_Genres1" FromRole="Films" ToRole="Genres" />
+          <NavigationProperty Name="Genres" Relationship="Self.FK_Films_Genres" FromRole="Films" ToRole="Genres" />
           <NavigationProperty Name="Producers" Relationship="Self.FK_Films_Producers" FromRole="Films" ToRole="Producers" />
           <NavigationProperty Name="Ratings" Relationship="Self.FK_Ratings_Films" FromRole="Films" ToRole="Ratings" />
         </EntityType>
@@ -266,7 +275,7 @@
           </Key>
           <Property Name="IdGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GenreName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Films" Relationship="Self.FK_Films_Genres1" FromRole="Genres" ToRole="Films" />
+          <NavigationProperty Name="Films" Relationship="Self.FK_Films_Genres" FromRole="Genres" ToRole="Films" />
         </EntityType>
         <EntityType Name="Producers">
           <Key>
@@ -298,6 +307,16 @@
           <Property Name="IdStatus" Type="Int32" Nullable="false" />
           <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Status" FromRole="Status" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -338,7 +357,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Films_Genres1">
+        <Association Name="FK_Films_Genres">
           <End Role="Genres" Type="Self.Genres" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -353,9 +372,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Films_Producers">
-          <End Role="Producers" Type="Self.Producers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Producers" Type="Self.Producers" Multiplicity="1" />
           <End Role="Films" Type="Self.Films" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producers">
@@ -416,6 +433,7 @@
           <EntitySet Name="Producers" EntityType="Self.Producers" />
           <EntitySet Name="Ratings" EntityType="Self.Ratings" />
           <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="FK_ActorsFilm_Actors" Association="Self.FK_ActorsFilm_Actors">
             <End Role="Actors" EntitySet="Actors" />
@@ -425,7 +443,7 @@
             <End Role="Films" EntitySet="Films" />
             <End Role="ActorsFilm" EntitySet="ActorsFilm" />
           </AssociationSet>
-          <AssociationSet Name="FK_Films_Genres1" Association="Self.FK_Films_Genres1">
+          <AssociationSet Name="FK_Films_Genres" Association="Self.FK_Films_Genres">
             <End Role="Genres" EntitySet="Genres" />
             <End Role="Films" EntitySet="Films" />
           </AssociationSet>
@@ -521,6 +539,17 @@
               <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
                 <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MoviesModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

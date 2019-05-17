@@ -24,16 +24,34 @@ namespace Movies.View.Main
         {
             InitializeComponent();
         }
-            
+
+
+
+        private async Task<Users> GetUserAsync(string login, string password)
+        {
+            using (MyDB db = new MyDB())
+            {
+                return await Task.Run(() =>
+                {
+                    return db.Users.FirstOrDefault(i => i.Login == login && i.Pass == password);
+                });
+            }
+
+        }
+
         //Событие на клик кнопки авторизация
-        private void Autorization_Click(object sender, RoutedEventArgs e)
+        private async void Autorization_Click(object sender, RoutedEventArgs e)
         {
 
             //Создаем канал связи с бд
             using (MyDB db = new MyDB())
             {
-                // Ищем пользователя по параметрам
-                var user = db.Users.FirstOrDefault(i => i.Login == Login.Text && i.Pass == Pass.Password);
+
+                var user = await GetUserAsync(Login.Text, Pass.Password);
+                
+                
+                //// Ищем пользователя по параметрам
+                //var user = db.Users.FirstOrDefault(i => i.Login == Login.Text && i.Pass == Pass.Password);
 
                 // Если пользователь найден ( != null), то определи какого он статуса и откорй соответствующие окно
                 if (user != null)

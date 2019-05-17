@@ -21,21 +21,10 @@ namespace Movies.DataModel
             this.Ratings = new HashSet<Ratings>();
         }
     
-        // Для вывода в контролах
-        public string producer_fio { get; set; }
-        public string Genre { get; set; }
-        public string date
-        {
-            get
-            {
-                return $"{Year.Year}";
-            }
-        }
-
         public int IdFilm { get; set; }
         public string Name { get; set; }
         public int IdProducer { get; set; }
-        public System.DateTime Year { get; set; }
+        public Nullable<System.DateTime> Year { get; set; }
         public int IdGenre { get; set; }
         public Nullable<int> Rating { get; set; }
         public byte[] Poster { get; set; }
