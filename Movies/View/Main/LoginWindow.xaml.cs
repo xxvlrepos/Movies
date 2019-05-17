@@ -23,6 +23,7 @@ namespace Movies.View.Main
         public LoginWindow()
         {
             InitializeComponent();
+            Login.Focus();
         }
 
 
@@ -42,7 +43,7 @@ namespace Movies.View.Main
         //Событие на клик кнопки авторизация
         private async void Autorization_Click(object sender, RoutedEventArgs e)
         {
-
+            
             //Создаем канал связи с бд
             using (MyDB db = new MyDB())
             {
