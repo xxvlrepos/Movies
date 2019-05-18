@@ -1,4 +1,5 @@
 ﻿using Movies.DataModel;
+using Movies.LogicApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,14 +27,14 @@ namespace Movies.View.User
         {
             InitializeComponent();
 
-            //load();
+            load();
         }
 
         // Метод для загрузки данных с БД
-        void load()
+        async void load()
         {
             // Загружаем фильмы из БД
-            list.ItemsSource = new MyDB().Films.ToList();
+            list.ItemsSource = await new UserLogic().GetFilmsAsync();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

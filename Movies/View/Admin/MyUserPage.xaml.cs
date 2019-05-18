@@ -1,4 +1,5 @@
 ﻿using Movies.DataModel;
+using Movies.LogicApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,23 +18,20 @@ using System.Windows.Shapes;
 namespace Movies.View.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для UsersPage.xaml
+    /// Логика взаимодействия для MyUserPage.xaml
     /// </summary>
-    public partial class UsersPage : Page
+    public partial class MyUserPage : Page
     {
-        public UsersPage()
+        public MyUserPage()
         {
             InitializeComponent();
             LoadDB();
         }
 
-        public void LoadDB()
+        // Метод загрузки данных пользователей из БД
+        public async void LoadDB()
         {
-            using (MyDB db = new MyDB())
-            {
-                List<Users> users = new MyDB().Users.ToList();
-                UsersGrid.ItemsSource = users;
-            }
+            UsersGrid.ItemsSource = await new AdminLogic().GetUsersAsync();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -61,10 +59,10 @@ namespace Movies.View.Admin
                         UsersGrid.ItemsSource = db.Users.ToList(); // Прогружаем список пользователей
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                }   
+                }
 
             }
         }

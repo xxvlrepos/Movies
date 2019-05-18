@@ -116,7 +116,9 @@
     <Compile Include="DataModel\Users.cs">
       <DependentUpon>MyDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="LogicApp\AdminLogic.cs" />
     <Compile Include="LogicApp\CommonLogic.cs" />
+    <Compile Include="LogicApp\UserLogic.cs" />
     <Compile Include="View\Admin\AddFilmWindow.xaml.cs">
       <DependentUpon>AddFilmWindow.xaml</DependentUpon>
     </Compile>
@@ -129,8 +131,8 @@
     <Compile Include="View\Admin\FilmsPage.xaml.cs">
       <DependentUpon>FilmsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\UsersPage.xaml.cs">
-      <DependentUpon>UsersPage.xaml</DependentUpon>
+    <Compile Include="View\Admin\MyUserPage.xaml.cs">
+      <DependentUpon>MyUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Main\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -164,7 +166,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Admin\UsersPage.xaml">
+    <Page Include="View\Admin\MyUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

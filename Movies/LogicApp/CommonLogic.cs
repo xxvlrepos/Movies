@@ -14,6 +14,34 @@ namespace Movies.LogicApp
 
     class CommonLogic
     {
+        // Метод, который получает список фильмов. Айди статуса жанра необязательный параметр. Если он не указан, то выдаст все фильмы
+        public async Task<List<Films>> GetFilmsAsync(byte idStatusGenre = 0)
+        {
+            try
+            {
+                using (MyDB db = new MyDB())
+                {
+                    return await Task.Run(() =>
+                    {
+                        // Если не передали статус аккаунта, то верни всех пользователей
+                        if (idStatusGenre == 0)
+                            return db.Films.ToList();
+                        // Иначе, если статус аккаунта передали, то верни аккаунты по статусу
+                        else
+                            return db.Films.Where(i => i.IdGenre == idStatusGenre).ToList();
+                    });
+
+                }
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
+        }
+
+
         // Метод авторизации в асинхронном режиме
         public async Task<Users> AuthorizationAsync(string login, string password)
         {
