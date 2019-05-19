@@ -80,8 +80,11 @@ namespace Movies.View.Admin
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            Window wind = new AddFilmWindow();
-            wind.Show();
+            // Если фильм добавлен успешно, то загрузи список фильмов
+            if (new AddFilmWindow().ShowDialog() == true)
+            {                
+                LoadDB();
+            }
         }
     }
 }

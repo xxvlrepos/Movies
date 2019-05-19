@@ -74,52 +74,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataModel\Actors.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\ActorsFilm.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Films.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Genres.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\MyDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\MyDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\MyDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Producers.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Ratings.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Status.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\sysdiagrams.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Users.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DataModel\Actors.cs" />
+    <Compile Include="DataModel\ActorsFilm.cs" />
+    <Compile Include="DataModel\Films.cs" />
+    <Compile Include="DataModel\Genres.cs" />
+    <Compile Include="DataModel\MyDB.cs" />
+    <Compile Include="DataModel\Producers.cs" />
+    <Compile Include="DataModel\Ratings.cs" />
+    <Compile Include="DataModel\Status.cs" />
+    <Compile Include="DataModel\sysdiagrams.cs" />
+    <Compile Include="DataModel\Users.cs" />
     <Compile Include="LogicApp\AdminLogic.cs" />
     <Compile Include="LogicApp\CommonLogic.cs" />
     <Compile Include="LogicApp\Helps\ImageLogic.cs" />
     <Compile Include="LogicApp\UserLogic.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="View\Admin\AddFilmWindow.xaml.cs">
       <DependentUpon>AddFilmWindow.xaml</DependentUpon>
     </Compile>
@@ -206,13 +175,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DataModel\MyDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MyDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DataModel\MyDB.edmx.diagram">
-      <DependentUpon>MyDB.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -231,16 +193,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataModel\MyDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyDB.edmx</DependentUpon>
-      <LastGenOutput>MyDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataModel\MyDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyDB.edmx</DependentUpon>
-      <LastGenOutput>MyDB.cs</LastGenOutput>
-    </Content>
     <Resource Include="Images\aveng.jpeg" />
     <Resource Include="Images\img.png" />
   </ItemGroup>

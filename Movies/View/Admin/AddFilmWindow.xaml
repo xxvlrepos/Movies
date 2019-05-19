@@ -76,7 +76,7 @@
             <StackPanel>
                 <Label Content="Постер фильма" HorizontalContentAlignment="Center"/>
                 <Border Margin="10" BorderBrush="AliceBlue" BorderThickness="1">
-                    <Image MinHeight="150" MaxHeight="230" Source="C:\Users\fasge\source\repos\fasgetz\Movies\Movies\Images\aveng.jpeg" x:Name="img">
+                    <Image MinHeight="150" MaxHeight="230" x:Name="img">
                         <Image.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="Удалить изображение"/>
@@ -89,6 +89,7 @@
             <StackPanel>
                 <Label Content="Описание фильма" HorizontalContentAlignment="Center"/>
                 <TextBox
+                    x:Name="AboutFilm"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"                    
                     VerticalAlignment="Top"
                     AcceptsReturn="True"

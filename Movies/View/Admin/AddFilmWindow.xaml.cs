@@ -27,26 +27,21 @@ namespace Movies.View.Admin
 
         #region Секция свойств
 
-        Films film; // Фильм
-
         AdminLogic logic; // Логика работы администратора с сервером
         List<Actors> ListActors; // Общий список актеров
         List<Actors> FilmActors; // Список актеров фильма
-
-        // Путь к файлу
-        public string FilePath { get; set; }
-
-
-        List<ActorsFilm> ThisFilmActors; // Список актеров фильма
 
         
         int? idProducer; // Айди продюсера фильма
         DateTime? dateFilm; // Дата выхода фильма
         int? idGenre; // Айди жанра
         string Country; // Страна
+        byte[] ImageBytes; // Изображение в байтах                           
+        string FilePath { get; set; } // Путь к файлу изображения
+
         #endregion
 
-        
+
 
         public AddFilmWindow()
         {
@@ -132,7 +127,7 @@ namespace Movies.View.Admin
 
                 // Получаем актера 
                 var actor = (Actors)ActorsCB.SelectedItem;
-                actor.Role = role.Text;
+                actor.SetRole(role.Text);
 
 
 
@@ -158,22 +153,15 @@ namespace Movies.View.Admin
         // Событие на клик добавить постер
         private void AddPoster_Click(object sender, RoutedEventArgs e)
         {
-
-
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Файлы изображений (*.jpg, *.png)|*.jpg;*.png";
 
             if (openFileDialog.ShowDialog() == true)
             {
-                FilePath = openFileDialog.FileName;
-                //MessageBox.Show(FilePath);
+                FilePath = openFileDialog.FileName; // Путь файла изображения
 
-                //img.Source = new BitmapImage(new Uri(FilePath));
-
-
-                var imageData = ImageLogic.GetImageBinary(FilePath);
-
-                img.Source = ImageLogic.ByteToImage(imageData);
+                ImageBytes = ImageLogic.GetImageBinary(FilePath); // Изображение в бинарном формате
+                img.Source = ImageLogic.ByteToImage(ImageBytes); // Визуализация изображения
             }
         }
 
@@ -200,37 +188,50 @@ namespace Movies.View.Admin
         // Событие на клик добавить фильм
         private void AddFilm_Click(object sender, RoutedEventArgs e)
         {
-            // Если все данные ввели, то добавь фильм в БД
-            if (
-                FilmName.Text != string.Empty &&
-                idProducer != null &&
-                dateFilm != null &&
-                idGenre != null &&
-                Country != string.Empty &&
-                FilmActors != null
-                )
+            try
             {
-                MessageBox.Show($"Добавляем филм! {dateFilm}");
+                // Если все данные ввели, то добавь фильм в БД
+                if (
+                    FilmName.Text != string.Empty &&
+                    idProducer != null &&
+                    dateFilm != null &&
+                    idGenre != null &&
+                    Country != string.Empty &&
+                    FilmActors != null &&
+                    AboutFilm.Text != string.Empty &&
+                    ImageBytes != null
+                    )
+                {
+                    Films film = new Films()
+                    {
+                        AboutFilm = AboutFilm.Text,
+                        Country = Country,
+                        IdGenre = Convert.ToInt32(idGenre),
+                        Year = dateFilm,
+                        IdProducer = Convert.ToInt32(idProducer),
+                        Name = FilmName.Text,
+                        Poster = ImageBytes,
+                    };
+
+
+                    List<ActorsFilm> filmActors = new List<ActorsFilm>();
+                    foreach (var item in FilmActors)
+                        filmActors.Add(new ActorsFilm(film.IdFilm, item.IdActor, item.RoleActor));
+
+                    film.ActorsFilm = filmActors;
+
+                    logic.AddFilm(film);
+
+                    this.DialogResult = true; // Возвращаем DialogResult = true, т.к. фильм добавлен успешно
+                }
+                else
+                    MessageBox.Show("Заполните все необходимые данные!");
+                
             }
-
-
-            //film = new Films()
-            //{
-
-            //};
-
-            //// Список актеров фильма в коллекции
-            //List<ActorsFilm> actorsFilm = new List<ActorsFilm>()
-            //{
-
-            //};
-
-            //ThisFilmActors.Add(new ActorsFilm()
-            //{
-            //    IdActor = actor.IdActor,
-            //    Role = actor.Role,
-            //    IdFilm = film.IdFilm
-            //});
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
