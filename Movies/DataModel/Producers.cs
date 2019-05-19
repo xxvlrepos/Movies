@@ -19,7 +19,16 @@ namespace Movies.DataModel
         {
             this.Films = new HashSet<Films>();
         }
-    
+
+        #region Для контролов
+
+        public string GetProducerFIO
+        {
+            get => $"{Family} {Name} {Surname}";
+        }
+
+        #endregion
+
         public int idProducer { get; set; }
         public string Name { get; set; }
         public string Family { get; set; }

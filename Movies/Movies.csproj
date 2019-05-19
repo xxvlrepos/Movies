@@ -118,6 +118,7 @@
     </Compile>
     <Compile Include="LogicApp\AdminLogic.cs" />
     <Compile Include="LogicApp\CommonLogic.cs" />
+    <Compile Include="LogicApp\Helps\ImageLogic.cs" />
     <Compile Include="LogicApp\UserLogic.cs" />
     <Compile Include="View\Admin\AddFilmWindow.xaml.cs">
       <DependentUpon>AddFilmWindow.xaml</DependentUpon>
@@ -240,6 +241,8 @@
       <DependentUpon>MyDB.edmx</DependentUpon>
       <LastGenOutput>MyDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\aveng.jpeg" />
+    <Resource Include="Images\img.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

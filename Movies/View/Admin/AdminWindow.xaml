@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movies.View.Admin"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800" Background="#FFF3F3F3">
+        Title="AdminWindow" Height="450" Width="800" Background="#FFF3F3F3" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Menu HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="790" Background="#FFF3F3F3">
             <MenuItem Header="Films" Height="30" Width="119" Click="Films_click" FontFamily="Segoe UI Light" FontWeight="Light" FontSize="16"/>

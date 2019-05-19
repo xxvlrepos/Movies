@@ -14,6 +14,76 @@ namespace Movies.LogicApp
 
     class CommonLogic
     {
+
+        // Метод, который получает список актеров.
+        public async Task<List<Actors>> GetActorsAsync()
+        {
+            try
+            {
+                using (MyDB db = new MyDB())
+                {
+                    return await Task.Run(() =>
+                    {
+                        return db.Actors.ToList();
+                    });
+
+                }
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
+        }
+
+
+        // Метод, который получает список режисеров.
+        public async Task<List<Producers>> GetProducersAsync()
+        {
+            try
+            {
+                using (MyDB db = new MyDB())
+                {
+                    return await Task.Run(() =>
+                    {
+                        return db.Producers.ToList();
+                    });
+
+                }
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
+        }
+
+        // Метод, который получает список жанров.
+        public async Task<List<Genres>> GetGenresAsync()
+        {
+            try
+            {
+                using (MyDB db = new MyDB())
+                {
+                    return await Task.Run(() =>
+                    {
+                        return db.Genres.ToList();
+                    });
+
+                }
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
+        }
+
+
+
         // Метод, который получает список фильмов. Айди статуса жанра необязательный параметр. Если он не указан, то выдаст все фильмы
         public async Task<List<Films>> GetFilmsAsync(byte idStatusGenre = 0)
         {

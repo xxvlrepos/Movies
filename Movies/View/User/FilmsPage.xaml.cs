@@ -37,33 +37,6 @@ namespace Movies.View.User
             list.ItemsSource = await new UserLogic().GetFilmsAsync();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //await Task.Run(() =>
-            //{
-            //    for (int i = 0; i <= 100; i++)
-            //    {
-            //        list.Items.Add("kek");
-            //        list.Items.Refresh();
-            //        //Thread.Sleep(500);
-            //    }
-            //});
 
-
-            //for (int i = 0; i <= 100; i++)
-            //{
-            //    list.Items.Add("kek");
-            //    list.Items.Refresh();
-                
-            //    Thread.Sleep(50);
-            //}
-
-
-            // load();
-
-            //var a = (Films)list.SelectedItem;
-
-            //MessageBox.Show(a.IdFilm.ToString());
-        }
     }
 }
