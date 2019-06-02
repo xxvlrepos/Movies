@@ -82,7 +82,6 @@
     <Compile Include="DataModel\Producers.cs" />
     <Compile Include="DataModel\Ratings.cs" />
     <Compile Include="DataModel\Status.cs" />
-    <Compile Include="DataModel\sysdiagrams.cs" />
     <Compile Include="DataModel\Users.cs" />
     <Compile Include="LogicApp\AdminLogic.cs" />
     <Compile Include="LogicApp\CommonLogic.cs" />

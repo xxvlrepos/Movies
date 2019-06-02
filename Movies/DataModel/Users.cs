@@ -18,7 +18,6 @@ namespace Movies.DataModel
         {
             this.Login = login;
             this.Pass = password;
-            this.IdUser = 1; // 1 - статус обычного юзера
         }
 
         [Key]

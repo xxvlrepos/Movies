@@ -1,4 +1,4 @@
-namespace Movies.DataModel
+п»їnamespace Movies.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -8,7 +8,14 @@ namespace Movies.DataModel
 
     public partial class Actors
     {
-        #region Для вывода в контролы
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Actors()
+        {
+            ActorsFilm = new HashSet<ActorsFilm>();
+        }
+
+
+        #region Г„Г«Гї ГўГ»ГўГ®Г¤Г  Гў ГЄГ®Г­ГІГ°Г®Г«Г»
 
         public string GetFIO
         {
@@ -16,10 +23,10 @@ namespace Movies.DataModel
         }
 
 
-        // Роль актера
+        // ГђГ®Г«Гј Г ГЄГІГҐГ°Г 
         private string _RoleActor;
 
-        public void SetRole (string role)
+        public void SetRole(string role)
         {
             _RoleActor = role;
         }
@@ -34,14 +41,6 @@ namespace Movies.DataModel
             get => $"{Family} {Name} {Surname} - {RoleActor}";
         }
         #endregion
-
-
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Actors()
-        {
-            ActorsFilm = new HashSet<ActorsFilm>();
-        }
 
         [Key]
         public int IdActor { get; set; }

@@ -19,7 +19,6 @@ namespace Movies.DataModel
         public virtual DbSet<Producers> Producers { get; set; }
         public virtual DbSet<Ratings> Ratings { get; set; }
         public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

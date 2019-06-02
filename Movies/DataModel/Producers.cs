@@ -8,17 +8,6 @@ namespace Movies.DataModel
 
     public partial class Producers
     {
-
-        #region Для контролов
-
-        public string GetProducerFIO
-        {
-            get => $"{Family} {Name} {Surname}";
-        }
-
-        #endregion
-
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Producers()
         {
