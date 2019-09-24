@@ -4,19 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4744a8fd4027474fb99aaf5bcd50f49f" Name="Diagram1">
-        <EntityTypeShape EntityType="MoviesModel.Actors" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MoviesModel.ActorsFilm" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="MoviesModel.Films" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MoviesModel.Genres" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MoviesModel.Producers" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MoviesModel.Ratings" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MoviesModel.Status" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MoviesModel.Users" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+      <Diagram DiagramId="4fb228a5ec4b446aaee6d8412c6612ca" Name="Diagram1">
+        <EntityTypeShape EntityType="MoviesModel.Actor" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoviesModel.ActorsFilm" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoviesModel.Film" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoviesModel.Genre" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoviesModel.Producer" Width="1.5" PointX="10" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoviesModel.Rating" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoviesModel.Status" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoviesModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="MoviesModel.FK_ActorsFilm_Actors" ManuallyRouted="false" />
         <AssociationConnector Association="MoviesModel.FK_ActorsFilm_Films" ManuallyRouted="false" />
-        <AssociationConnector Association="MoviesModel.FK_Films_Genres1" ManuallyRouted="false" />
-        <AssociationConnector Association="MoviesModel.FK_Films_Producers" ManuallyRouted="false" />
         <AssociationConnector Association="MoviesModel.FK_Ratings_Films" ManuallyRouted="false" />
         <AssociationConnector Association="MoviesModel.FK_Ratings_Users" ManuallyRouted="false" />
         <AssociationConnector Association="MoviesModel.FK_Users_Status" ManuallyRouted="false" />
