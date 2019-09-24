@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Movies.LogicApp
 {
@@ -13,6 +14,11 @@ namespace Movies.LogicApp
     /// 
     class AdminLogic : CommonLogic
     {
+        public AdminLogic()
+        {
+
+        }
+
         // Метод, который добавляет фильм в БД. И возвращает true в случае успеха
         public bool AddFilm(Films film)
         {
@@ -50,7 +56,6 @@ namespace Movies.LogicApp
                         else
                             return db.Users.Where(i => i.IdStatus == idStatus).ToList();
                     });
-
                 }
             }
             catch (Exception)
@@ -59,6 +64,17 @@ namespace Movies.LogicApp
             }
 
             return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
-        }        
+        }
+
+
+        #region Работа с окнами
+
+        public override void ShowWindow()
+        {
+            Window window1 = new View.Admin.AdminWindow();
+            window1.Show();
+        }
+
+        #endregion
     }
 }

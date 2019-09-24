@@ -24,10 +24,14 @@ namespace Movies.View.User
     /// </summary>
     public partial class FilmsPage : Page
     {
+
+        CommonLogic logic;
+
         public FilmsPage()
         {
             InitializeComponent();
 
+            logic = new CommonLogic();
             load();
         }
 
@@ -35,7 +39,7 @@ namespace Movies.View.User
         async void load()
         {
             // Загружаем фильмы из БД
-            list.ItemsSource = await new UserLogic().GetFilmsAsync();
+            list.ItemsSource = await logic.GetFilmsAsync();
         }
 
         protected void HandleDoubleClick(object sender, MouseButtonEventArgs e)

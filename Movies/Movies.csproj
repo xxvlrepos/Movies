@@ -82,11 +82,15 @@
     <Compile Include="DataModel\Producers.cs" />
     <Compile Include="DataModel\Ratings.cs" />
     <Compile Include="DataModel\Status.cs" />
+    <Compile Include="DataModel\UserDB.cs" />
     <Compile Include="DataModel\Users.cs" />
     <Compile Include="LogicApp\AdminLogic.cs" />
     <Compile Include="LogicApp\CommonLogic.cs" />
     <Compile Include="LogicApp\Helps\ImageLogic.cs" />
-    <Compile Include="LogicApp\UserLogic.cs" />
+    <Compile Include="Migrations\201909241603319_test1.cs" />
+    <Compile Include="Migrations\201909241603319_test1.Designer.cs">
+      <DependentUpon>201909241603319_test1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="View\Admin\AddFilmWindow.xaml.cs">
       <DependentUpon>AddFilmWindow.xaml</DependentUpon>
@@ -170,6 +174,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201909241603319_test1.resx">
+      <DependentUpon>201909241603319_test1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

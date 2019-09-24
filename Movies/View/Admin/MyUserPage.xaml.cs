@@ -22,6 +22,9 @@ namespace Movies.View.Admin
     /// </summary>
     public partial class MyUserPage : Page
     {
+
+        AdminLogic logic = new AdminLogic();
+
         public MyUserPage()
         {
             InitializeComponent();
@@ -31,7 +34,7 @@ namespace Movies.View.Admin
         // Метод загрузки данных пользователей из БД
         public async void LoadDB()
         {
-            UsersGrid.ItemsSource = await new AdminLogic().GetUsersAsync();
+            UsersGrid.ItemsSource = await logic.GetUsersAsync();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

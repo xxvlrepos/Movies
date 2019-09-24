@@ -21,31 +21,17 @@ namespace Movies.View.Main
     /// </summary>
     public partial class LoginWindow : Window
     {
+
+
+        CommonLogic LogicApp; // Логика работы программы
+
         public LoginWindow()
         {
             InitializeComponent();
+
+            LogicApp = new CommonLogic();
         }
 
-
-
-        private async Task<Users> GetUserAsync(string login, string password)
-        {
-            try
-            {
-                using (MyDB db = new MyDB())
-                {
-                    return await Task.Run(() =>
-                    {
-                        return db.Users.FirstOrDefault(i => i.Login == login && i.Pass == password);
-                    });
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-        }
 
         //Событие на клик кнопки авторизация
         private async void Autorization_Click(object sender, RoutedEventArgs e)
@@ -53,27 +39,18 @@ namespace Movies.View.Main
             if (Login.Text != string.Empty && Pass.Password != string.Empty)
             {
                 // Получаем пользователя
-                var user = await new CommonLogic().AuthorizationAsync(Login.Text, Pass.Password);
+                var user = await LogicApp.AuthorizationAsync(Login.Text, Pass.Password);
 
                 // Если пользователь найден, то открой окно в зависимости от его статуса
                 if (user != null)
                 {
-                    switch (user.IdStatus)
-                    {
-                        case (1):
-                            Window window = new User.UserWindow();
-                            window.Show();
-                            this.Close();
+                    if (user.IdStatus == 0) // Если админ, то реализация логики администратора
+                        LogicApp = new AdminLogic();
 
-                            break;
-                        case (2):
-                            Window window1 = new Admin.AdminWindow();
-                            window1.Show();
-                            this.Close();
-                            break;
-                        default:
-                            break;
-                    }
+                    LogicApp.ShowWindow();
+
+
+                    this.Close(); // Закрываем текущее окно
                 }
                 else
                     MessageBox.Show("Пользователь не найден");
