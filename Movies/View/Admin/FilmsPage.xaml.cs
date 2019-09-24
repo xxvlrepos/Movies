@@ -36,6 +36,9 @@ namespace Movies.View.Admin
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+
+            bool a = true;
+
             try
             {
                 var film = (DataModel.Films)(FilmsGrid.SelectedValue);
