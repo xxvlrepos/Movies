@@ -19,6 +19,27 @@ namespace Movies.LogicApp
 
         }
 
+
+
+        // Метод, который получает список актеров.
+        public async Task<List<Actors>> GetActorsAsync()
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    using (MyDB db = new MyDB())
+                        return db.Actors.ToList();
+                });
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
+        }
+
         // Метод, который добавляет фильм в БД. И возвращает true в случае успеха
         public bool AddFilm(Films film)
         {

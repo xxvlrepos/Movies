@@ -1,0 +1,39 @@
+﻿<Page x:Class="Movies.View.Admin.ActorsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Movies.View.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="377" d:DesignWidth="781"
+      Title="ActorsPage">
+    <Page.Resources>
+
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="DGC_NumericColumnStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <DataGrid x:Name="ActorsGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="381" IsReadOnly="True" CanUserDeleteRows="True" VerticalAlignment="Top" Width="788" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="20*" Header="Номер" Binding="{Binding IdActor}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Имя" Binding="{Binding Name}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Фамилия" Binding="{Binding Family}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Отчество" Binding="{Binding Surname}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Пол" Binding="{Binding Gender}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu Background="#FFF3F3F3">
+                    <MenuItem x:Name="Add" Header="Добавить"/>
+                    <MenuItem x:Name="Edit" Header="Изменить" />
+                    <MenuItem x:Name="Delete" Header="Удалить" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+
+    </Grid>
+</Page>

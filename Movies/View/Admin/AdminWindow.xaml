@@ -12,14 +12,16 @@
                 <ItemsPanelTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="33*"/>
+                            <ColumnDefinition Width="33*"/>
+                            <ColumnDefinition Width="33*"/>
                         </Grid.ColumnDefinitions>
                     </Grid>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
             <MenuItem Header="Films" HorizontalContentAlignment="Center" Height="30" Click="Films_click" Grid.Column="0" />
-            <MenuItem Header="Users" Height="30" Click="Users_click" Grid.Column="1" />
+            <MenuItem Header="Users" Height="30" Click="Users_click" Grid.Column="1"/>
+            <MenuItem Header="Actors" Height="30" Click="Actors_Click" Grid.Column="2"/>
         </Menu>
         <Frame x:Name="frame" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="377" Margin="2,35,0,0" VerticalAlignment="Top" Width="781" Background="#FFF3F3F3"/>
 

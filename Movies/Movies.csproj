@@ -92,6 +92,9 @@
       <DependentUpon>201909241603319_test1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="View\Admin\ActorsPage.xaml.cs">
+      <DependentUpon>ActorsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\AddFilmWindow.xaml.cs">
       <DependentUpon>AddFilmWindow.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
     <Compile Include="View\User\UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Admin\ActorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Admin\AddFilmWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

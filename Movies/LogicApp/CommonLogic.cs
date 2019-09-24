@@ -24,24 +24,7 @@ namespace Movies.LogicApp
 
         #region Секция методов для работы с БД
 
-        // Метод, который получает список актеров.
-        public async Task<List<Actors>> GetActorsAsync()
-        {
-            try
-            {
-                return await Task.Run(() =>
-                {
-                    using (UserDB db = new UserDB())
-                        return db.Actors.ToList();
-                });
-            }
-            catch (Exception)
-            {
-                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
-            }
 
-            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
-        }
 
 
         // Метод, который получает список режисеров.
