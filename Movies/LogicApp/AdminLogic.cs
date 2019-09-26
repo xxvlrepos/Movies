@@ -14,12 +14,58 @@ namespace Movies.LogicApp
     /// 
     class AdminLogic : CommonLogic
     {
-        public AdminLogic()
-        {
 
+        // Метод, который добавляет актера
+        public async Task<bool> AddActor(Actors actor)
+        {
+            try
+            {
+                await Task.Run(() =>
+                {
+                    using (MyDB db = new MyDB())
+                    {
+                        db.Actors.Add(actor);
+                        db.SaveChanges();
+
+                        return true;
+                    }
+                });
+
+                return true; // т.к. успешно редактирован актер
+            }
+            catch (Exception)
+            {
+                // Тут можно обработать ошибку как-нибудь ..
+
+                return false; // т.к. неудачно добавлен актер
+            }
         }
 
+        // Метод, который редактирует актера
+        public async Task<bool> EditActor(Actors actor)
+        {
+            try
+            {
+                await Task.Run(() =>
+                {
+                    using (MyDB db = new MyDB())
+                    {
+                        db.Entry(actor).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
 
+                        return true;
+                    }
+                });
+
+                return true; // т.к. успешно редактирован актер
+            }
+            catch (Exception)
+            {
+                // Тут можно обработать ошибку как-нибудь ..
+
+                return false; // т.к. неудачно редактирован актер (Ошибка)
+            }
+        }
 
         // Метод, который получает список актеров.
         public async Task<List<Actors>> GetActorsAsync()
