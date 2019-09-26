@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Movies.View.Admin"
       mc:Ignorable="d" 
       xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-      d:DesignHeight="380" d:DesignWidth="780"
+      d:DesignHeight="450" d:DesignWidth="615"
       Title="ActorsPage">
     <Page.Resources>
         <Style BasedOn="{StaticResource MaterialDesignTextBox}"
@@ -30,71 +30,36 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <StackPanel>
-            <Grid Height="380">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="7*"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <DataGrid Grid.Column="0" Grid.RowSpan="2" x:Name="ActorsGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" IsReadOnly="True" CanUserDeleteRows="True" VerticalAlignment="Top" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" SelectionChanged="ActorsGrid_SelectionChanged">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Width="20*" Header="Номер" Binding="{Binding IdActor}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                        <DataGridTextColumn Width="20*" Header="Имя" Binding="{Binding Name}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                        <DataGridTextColumn Width="20*" Header="Фамилия" Binding="{Binding Family}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                        <DataGridTextColumn Width="20*" Header="Отчество" Binding="{Binding Surname}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                        <DataGridTextColumn Width="20*" Header="Пол" Binding="{Binding Gender}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                    </DataGrid.Columns>
-                    <!--<DataGrid.ContextMenu>
-                        <ContextMenu Background="#FFF3F3F3">
-                            <MenuItem x:Name="Add" Header="Добавить"/>
-                            <MenuItem x:Name="Edit" Header="Изменить" />
-                            <MenuItem x:Name="Delete" Header="Удалить" />
-                        </ContextMenu>
-                    </DataGrid.ContextMenu>-->
-                </DataGrid>
-                <Grid Grid.Column="1" Grid.Row="0">
-                    <Border Margin="5" BorderBrush="Black" BorderThickness="1">
-                        <StackPanel Margin="0 10">
-                            <Label Content="Добавление актера"/>
-                            <TextBox x:Name="name" md:HintAssist.Hint="Введите имя"/>
-                            <TextBox x:Name="family" md:HintAssist.Hint="Введите фамилию"/>
-                            <TextBox x:Name="surname" md:HintAssist.Hint="Введите отчество"/>
-                            <ComboBox Padding="20 5" x:Name="GenderCB_Added" HorizontalContentAlignment="Left" md:HintAssist.Hint="Выберите пол"/>
-                            <Button Content="Добавить" Click="AddClick"/>
-                        </StackPanel>
-                    </Border>
-                </Grid>
-                <Grid Grid.Column="1" Grid.Row="1">
-                    <Border Margin="5" BorderBrush="Black" BorderThickness="1">
-                        <StackPanel Margin="0 10">
-                            <Label Content="Редактирование"/>
-                            <TextBox x:Name="NameEditBox" md:HintAssist.Hint="Введите имя"/>
-                            <TextBox x:Name="FamilyEditBox" md:HintAssist.Hint="Введите фамилию"/>
-                            <TextBox x:Name="SurnameEditBox" md:HintAssist.Hint="Введите отчество"/>
-                            <ComboBox Padding="20 5" x:Name="GenderCB_Edit" HorizontalContentAlignment="Left" md:HintAssist.Hint="Выберите пол"/>
-                            <Button Content="Сохранить" Click="EditClick"/>
-                        </StackPanel>
-                    </Border>
-                </Grid>
-                <!--<StackPanel Grid.Column="1" Grid.Row="1">
-                    <Border BorderBrush="Black" BorderThickness="1">
-                        <StackPanel>
-                            <Label Content="Добавление пользователя"/>
-                            <TextBox Padding="10 0" HorizontalContentAlignment="Center" md:HintAssist.Hint="Введите имя"/>
-                            <TextBox Padding="10 0" HorizontalContentAlignment="Center" md:HintAssist.Hint="Введите фамилию"/>
-                            <TextBox Padding="10 0" HorizontalContentAlignment="Center" md:HintAssist.Hint="Введите отчество"/>
-                            <ComboBox x:Name="ActorsCB" DisplayMemberPath="GetFIO" HorizontalContentAlignment="Center" md:HintAssist.Hint="Выберите пол"/>
-                            <Button Content="Добавить"/>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>-->
-            </Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid MaxHeight="450" VerticalAlignment="Top" Grid.Column="0"  x:Name="ActorsGrid" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="False" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" SelectionChanged="ActorsGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="20*" Header="Номер" Binding="{Binding IdActor}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Имя" Binding="{Binding Name}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Фамилия" Binding="{Binding Family}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Отчество" Binding="{Binding Surname}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Пол" Binding="{Binding Gender}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel VerticalAlignment="Center" Grid.Column="1">
+            <StackPanel VerticalAlignment="Center" Margin="10">
+                <Label Content="Добавление актера"/>
+                <TextBox x:Name="name" md:HintAssist.Hint="Введите имя"/>
+                <TextBox x:Name="family" md:HintAssist.Hint="Введите фамилию"/>
+                <TextBox x:Name="surname" md:HintAssist.Hint="Введите отчество"/>
+                <ComboBox Padding="20 5" x:Name="GenderCB_Added" HorizontalContentAlignment="Left" md:HintAssist.Hint="Выберите пол"/>
+                <Button Content="Добавить" Click="AddClick"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Margin="10">
+                <Label Content="Редактирование"/>
+                <TextBox x:Name="NameEditBox" md:HintAssist.Hint="Введите имя"/>
+                <TextBox x:Name="FamilyEditBox" md:HintAssist.Hint="Введите фамилию"/>
+                <TextBox x:Name="SurnameEditBox" md:HintAssist.Hint="Введите отчество"/>
+                <ComboBox Padding="20 5" x:Name="GenderCB_Edit" HorizontalContentAlignment="Left" md:HintAssist.Hint="Выберите пол"/>
+                <Button Content="Сохранить" Click="EditClick"/>
+            </StackPanel>
         </StackPanel>
-        
-
     </Grid>
 </Page>
