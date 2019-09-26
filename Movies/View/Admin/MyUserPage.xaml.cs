@@ -70,6 +70,7 @@ namespace Movies.View.Admin
             }
         }
 
+        // Кнопка редактирования
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             //db.
