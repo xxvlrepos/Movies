@@ -26,7 +26,6 @@ namespace Movies.View.Admin
             InitializeComponent();
             LoadDB();
 
-            int a =5;
         }
 
         public void LoadDB()
