@@ -1,4 +1,5 @@
 ﻿using Movies.DataModel;
+using Movies.LogicApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,44 +21,43 @@ namespace Movies.View.Main
     /// </summary>
     public partial class LoginWindow : Window
     {
+
+
+        CommonLogic LogicApp; // Логика работы программы
+
         public LoginWindow()
         {
             InitializeComponent();
+
+            LogicApp = new CommonLogic();
         }
-            
+
+
         //Событие на клик кнопки авторизация
-        private void Autorization_Click(object sender, RoutedEventArgs e)
+        private async void Autorization_Click(object sender, RoutedEventArgs e)
         {
-
-            //Создаем канал связи с бд
-            using (MyDB db = new MyDB())
+            if (Login.Text != string.Empty && Pass.Password != string.Empty)
             {
-                // Ищем пользователя по параметрам
-                var user = db.Users.FirstOrDefault(i => i.Login == Login.Text && i.Pass == Pass.Password);
+                // Получаем пользователя
+                var user = await LogicApp.AuthorizationAsync(Login.Text, Pass.Password);
 
-                // Если пользователь найден ( != null), то определи какого он статуса и откорй соответствующие окно
+                // Если пользователь найден, то открой окно в зависимости от его статуса
                 if (user != null)
                 {
-                    switch (user.IdStatus)
-                    {
-                        case (1):
-                            Window window = new User.UserWindow();
-                            window.Show();
-                            this.Close();
+                    if (user.IdStatus == 0) // Если админ, то реализация логики администратора
+                        LogicApp = new AdminLogic();
 
-                            break;
-                        case (2):
-                            Window window1 = new Admin.AdminWindow();
-                            window1.Show();
-                            this.Close();
-                            break;
-                        default:
-                            break;
-                    }
+                    LogicApp.ShowWindow();
+
+
+                    this.Close(); // Закрываем текущее окно
                 }
                 else
                     MessageBox.Show("Пользователь не найден");
             }
+            else
+                MessageBox.Show("Введите логин и пароль");            
+            
         }
 
         //Событие на клик кнопки регистрация 

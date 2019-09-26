@@ -74,6 +74,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataModel\Actors.cs" />
+    <Compile Include="DataModel\ActorsFilm.cs" />
+    <Compile Include="DataModel\Films.cs" />
+    <Compile Include="DataModel\Genres.cs" />
+    <Compile Include="DataModel\MyDB.cs" />
+    <Compile Include="DataModel\Producers.cs" />
+    <Compile Include="DataModel\Ratings.cs" />
+    <Compile Include="DataModel\Status.cs" />
+    <Compile Include="DataModel\UserDB.cs" />
+    <Compile Include="DataModel\Users.cs" />
+    <Compile Include="LogicApp\AdminLogic.cs" />
+    <Compile Include="LogicApp\CommonLogic.cs" />
+    <Compile Include="LogicApp\Helps\ImageLogic.cs" />
+    <Compile Include="Migrations\201909241603319_test1.cs" />
+    <Compile Include="Migrations\201909241603319_test1.Designer.cs">
+      <DependentUpon>201909241603319_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="View\Admin\ActorsPage.xaml.cs">
+      <DependentUpon>ActorsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Admin\AddFilmWindow.xaml.cs">
       <DependentUpon>AddFilmWindow.xaml</DependentUpon>
     </Compile>
@@ -86,8 +107,8 @@
     <Compile Include="View\Admin\FilmsPage.xaml.cs">
       <DependentUpon>FilmsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin\UsersPage.xaml.cs">
-      <DependentUpon>UsersPage.xaml</DependentUpon>
+    <Compile Include="View\Admin\MyUserPage.xaml.cs">
+      <DependentUpon>MyUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Main\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -95,45 +116,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DataModel\Actors.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\ActorsFilm.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Films.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Genres.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\MyDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\MyDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\MyDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Producers.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Ratings.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Status.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Users.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="View\Main\RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
@@ -144,6 +126,10 @@
     <Compile Include="View\User\UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Admin\ActorsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Admin\AddFilmWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -160,7 +146,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Admin\UsersPage.xaml">
+    <Page Include="View\Admin\MyUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,17 +181,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201909241603319_test1.resx">
+      <DependentUpon>201909241603319_test1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DataModel\MyDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MyDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DataModel\MyDB.edmx.diagram">
-      <DependentUpon>MyDB.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -215,24 +197,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="DataModel\MyDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MyDB.Context.cs</LastGenOutput>
-      <DependentUpon>MyDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="DataModel\MyDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyDB.edmx</DependentUpon>
-      <LastGenOutput>MyDB.cs</LastGenOutput>
-    </Content>
     <Resource Include="videoplayer_112441.ico" />
     <Resource Include="View\Main\icon.png" />
     <Resource Include="View\Main\1.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\aveng.jpeg" />
+    <Resource Include="Images\img.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

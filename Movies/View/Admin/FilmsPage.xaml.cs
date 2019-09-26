@@ -1,4 +1,5 @@
 ﻿using Movies.DataModel;
+using Movies.LogicApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +29,9 @@ namespace Movies.View.Admin
         }
 
         // Метод для загрузки данных из БД
-        private void LoadDB()
+        private async void LoadDB()
         {
-            FilmsGrid.ItemsSource = new MyDB().Films.ToList(); // Загружаем в grid.itemssource названия фильмов
+            FilmsGrid.ItemsSource = await new AdminLogic().GetFilmsAsync();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -79,8 +80,11 @@ namespace Movies.View.Admin
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            Window wind = new AddFilmWindow();
-            wind.Show();
+            // Если фильм добавлен успешно, то загрузи список фильмов
+            if (new AddFilmWindow().ShowDialog() == true)
+            {                
+                LoadDB();
+            }
         }
     }
 }

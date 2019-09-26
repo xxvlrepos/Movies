@@ -7,9 +7,14 @@
       mc:Ignorable="d" 
       d:DesignHeight="420" d:DesignWidth="790"
       Title="FilmsPage">
-
+    <Page.Resources>
+        <Style x:Key="itemstyle" TargetType="{x:Type ListViewItem}">
+            <EventSetter Event="MouseDoubleClick" Handler="HandleDoubleClick" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+    </Page.Resources>
     <Grid>
-        <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="785">
+        <ListView HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource itemstyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel">
             <ListBox.Resources>
                 <Style TargetType="ListBoxItem">
                     <Style.Triggers>
@@ -21,19 +26,48 @@
             </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <DockPanel Margin="150,0,100,0">
-                        <Border BorderBrush="Black" BorderThickness="1">
-                            <StackPanel Height="auto" Width="450" VerticalAlignment="Center">
-                                <TextBlock FontSize="20" HorizontalAlignment="Center" Text="{Binding Path=Name}" />
-                                <TextBlock FontSize="16" HorizontalAlignment="Center" Text="{Binding Producers.GetProducerFio}"/>
-                                <Image Height="200" Width="400" Margin="0,10" VerticalAlignment="Top" Source="{Binding Path=Poster}" />
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="Рейтинг: "/>
-                                    <Label Content="4"/>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <Grid>
+                            <DockPanel Grid.Row="0">
+                                <StackPanel>
+                                    <TextBlock FontSize="20" Text="{Binding Path=Name}" />
+                                    <TextBlock FontSize="16" Text="{Binding Producers.GetProducerFio}"/>
+                                    <DockPanel>
+                                        <Image HorizontalAlignment="Center" Margin="25, 10" MaxWidth="800" Source="{Binding Path=Poster}" />
+                                    </DockPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Рейтинг: "/>
+                                        <Label Content="4"/>
+                                    </StackPanel>
                                 </StackPanel>
+                            </DockPanel>
+
+                        </Grid>
+
+                    </Border>
+                    <!--<Border BorderBrush="Black" BorderThickness="1">
+                        <Label Content="hello world"/>
+                        -->
+                    <!--<Grid>
+                            <TextBlock FontSize="20" Text="{Binding Path=Name}" />
+                            <TextBlock FontSize="16" Text="{Binding Producers.GetProducerFio}"/>
+                            <Image HorizontalAlignment="Center" Margin="25, 10" Height="auto" MinWidth="150" MaxWidth="800" Source="{Binding Path=Poster}" />
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Рейтинг: "/>
+                                <Label Content="4"/>
                             </StackPanel>
-                        </Border>
-                    </DockPanel>
+                        </Grid>-->
+                    <!--<StackPanel>
+                            <TextBlock FontSize="20" Text="{Binding Path=Name}" />
+                            <TextBlock FontSize="16" Text="{Binding Producers.GetProducerFio}"/>
+                            <Image HorizontalAlignment="Center" Margin="25, 10" Height="auto" MinWidth="150" MaxWidth="800" Source="{Binding Path=Poster}" />
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Рейтинг: "/>
+                                <Label Content="4"/>
+                            </StackPanel>
+                        </StackPanel>-->
+                    <!--
+                    </Border>-->
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListView>
