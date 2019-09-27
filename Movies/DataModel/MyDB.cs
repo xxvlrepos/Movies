@@ -20,9 +20,9 @@ namespace Movies.DataModel
         }
 
         //public virtual DbSet<Actors> Actors { get; set; }
-        //public virtual DbSet<ActorsFilm> ActorsFilm { get; set; }
-        //public virtual DbSet<Films> Films { get; set; }
+        //public virtual DbSet<ActorsFilm> ActorsFilm { get; set; }Films { get; set; }
         //public virtual DbSet<Genres> Genres { get; set; }
+        //public virtual DbSet<Films> 
         //public virtual DbSet<Producers> Producers { get; set; }
         //public virtual DbSet<Ratings> Ratings { get; set; }
         //public virtual DbSet<Status> Status { get; set; }

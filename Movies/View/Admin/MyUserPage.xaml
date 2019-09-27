@@ -21,7 +21,6 @@
             <DataGrid.ContextMenu>
                 <ContextMenu Background="#FFF3F3F3">
                     <MenuItem x:Name="Add" Click="Add_Click" Header="Добавить"/>
-                    <MenuItem x:Name="Edit" Click="Edit_Click" Header="Изменить" />
                     <MenuItem x:Name="Delete" Click="Delete_Click" Header="Удалить" />
                 </ContextMenu>
             </DataGrid.ContextMenu>
