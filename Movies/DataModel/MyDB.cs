@@ -16,7 +16,7 @@ namespace Movies.DataModel
         public MyDB()
             :base("name=AdminDB")
         {
-
+            
         }
 
         //public virtual DbSet<Actors> Actors { get; set; }

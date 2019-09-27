@@ -27,24 +27,7 @@ namespace Movies.LogicApp
 
 
 
-        // Метод, который получает список режисеров.
-        public async Task<List<Producers>> GetProducersAsync()
-        {
-            try
-            {
-                return await Task.Run(() =>
-                {
-                    using (UserDB db = new UserDB())
-                        return db.Producers.ToList();
-                });
-            }
-            catch (Exception)
-            {
-                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
-            }
 
-            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
-        }
 
         // Метод, который получает список жанров.
         public async Task<List<Genres>> GetGenresAsync()

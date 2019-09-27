@@ -15,6 +15,79 @@ namespace Movies.LogicApp
     class AdminLogic : CommonLogic
     {
 
+
+        // Метод, который добавляет режиссера
+        public async Task<bool> AddProducerAsync(Producers producer)
+        {
+            try
+            {
+                await Task.Run(() =>
+                {
+                    using (MyDB db = new MyDB())
+                    {
+                        db.Producers.Add(producer);
+                        db.SaveChanges();
+                        
+                        return true;
+                    }
+                });
+
+                return true; // т.к. успешно редактирован актер
+            }
+            catch (Exception)
+            {
+                // Тут можно обработать ошибку как-нибудь ..
+
+                return false; // т.к. неудачно добавлен актер
+            }
+        }
+
+        // Метод, который редактирует режиссера
+        public async Task<bool> EditProducerAsync(Producers producer)
+        {
+            try
+            {
+                await Task.Run(() =>
+                {
+                    using (MyDB db = new MyDB())
+                    {
+                        db.Entry(producer).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+
+                        return true;
+                    }
+                });
+
+                return true; // т.к. успешно редактирован актер
+            }
+            catch (Exception)
+            {
+                // Тут можно обработать ошибку как-нибудь ..
+
+                return false; // т.к. неудачно редактирован актер (Ошибка)
+            }
+        }
+
+        // Метод, который получает список режиссеров.
+        public async Task<List<Producers>> GetProducersAsync()
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    using (MyDB db = new MyDB())
+                        return db.Producers.ToList();
+                });
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
+        }
+
+
         // Метод, который добавляет актера
         public async Task<bool> AddActor(Actors actor)
         {

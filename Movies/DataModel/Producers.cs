@@ -34,5 +34,10 @@ namespace Movies.DataModel
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Films> Films { get; set; }
+
+        public string GetProducerFIO
+        {
+            get => $"{Family} {Name} {Surname}";
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movies.View.Admin"
         mc:Ignorable="d"
-        Title="AdminWindow" MinHeight="530" MinWidth="800" Height="530" Width="800" MaxHeight="530" Background="#FFF3F3F3" WindowStartupLocation="CenterScreen">
+        Title="AdminWindow" Height="530" Width="800" Background="#FFF3F3F3" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <Menu Height="30" VerticalAlignment="Top" Background="#FFF3F3F3">
@@ -13,9 +13,10 @@
                     <ItemsPanelTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="33*"/>
-                                <ColumnDefinition Width="33*"/>
-                                <ColumnDefinition Width="33*"/>
+                                <ColumnDefinition Width="25*"/>
+                                <ColumnDefinition Width="25*"/>
+                                <ColumnDefinition Width="25*"/>
+                                <ColumnDefinition Width="25*"/>
                             </Grid.ColumnDefinitions>
                         </Grid>
                     </ItemsPanelTemplate>
@@ -23,6 +24,7 @@
                 <MenuItem Header="Films" HorizontalContentAlignment="Center" Height="30" Click="Films_click" Grid.Column="0" />
                 <MenuItem Header="Users" Height="30" Click="Users_click" Grid.Column="1"/>
                 <MenuItem Header="Actors" Height="30" Click="Actors_Click" Grid.Column="2"/>
+                <MenuItem Header="Producers" Height="30" Click="Producers_Click" Grid.Column="3"/>
             </Menu>
             <Frame x:Name="frame" NavigationUIVisibility="Hidden"  Background="#FFF3F3F3"/>
         </StackPanel>

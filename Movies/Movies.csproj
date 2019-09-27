@@ -110,6 +110,9 @@
     <Compile Include="View\Admin\MyUserPage.xaml.cs">
       <DependentUpon>MyUserPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Admin\ProducerPage.xaml.cs">
+      <DependentUpon>ProducerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Main\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Admin\MyUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\ProducerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
