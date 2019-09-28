@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -73,7 +74,6 @@ namespace Movies.LogicApp
             return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
         }
 
-
         // Метод авторизации в асинхронном режиме
         public async Task<Users> AuthorizationAsync(string login, string password)
         {
@@ -89,12 +89,17 @@ namespace Movies.LogicApp
                     });
                 }
             }
-            catch (Exception)
-            { 
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Сервер не отвечает");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
                 // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
             }
 
-            return null; // Возвращаем null, в случае, если пользователь не найден
+            return null;
         }
 
         #endregion
