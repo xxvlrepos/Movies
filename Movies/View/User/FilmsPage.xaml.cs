@@ -51,6 +51,6 @@ namespace Movies.View.User
             MessageBox.Show($"Айди фильма {film.Name}");
         }
 
-
+       
     }
 }
