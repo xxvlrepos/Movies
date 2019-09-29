@@ -21,7 +21,7 @@
                 <DataGridTextColumn Header="Название фильма" Width="6*" Binding="{Binding Name}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
                 <DataGridTextColumn Header="Режиссер" Width="4*" Binding="{Binding Producers.GetProducerFIO}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
                 <DataGridTextColumn Header="Жанр" Width="2*" Binding="{Binding Genres.GenreName}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Header="Дата" Width="3*" Binding="{Binding Year}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Header="Дата" Width="3*" Binding="{Binding DateFilm}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
                 <DataGridTextColumn Header="Страна" Width="2*" Binding="{Binding Country}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
             </DataGrid.Columns>
             <DataGrid.ContextMenu>

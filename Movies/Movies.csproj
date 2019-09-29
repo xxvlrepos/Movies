@@ -115,6 +115,18 @@
     <Compile Include="Migrations\201909291600061_test2.Designer.cs">
       <DependentUpon>201909291600061_test2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909291632377_test3.cs" />
+    <Compile Include="Migrations\201909291632377_test3.Designer.cs">
+      <DependentUpon>201909291632377_test3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909291633523_test4.cs" />
+    <Compile Include="Migrations\201909291633523_test4.Designer.cs">
+      <DependentUpon>201909291633523_test4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909291640122_test5.cs" />
+    <Compile Include="Migrations\201909291640122_test5.Designer.cs">
+      <DependentUpon>201909291640122_test5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="View\Admin\ActorsPage.xaml.cs">
       <DependentUpon>ActorsPage.xaml</DependentUpon>
@@ -217,6 +229,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909291600061_test2.resx">
       <DependentUpon>201909291600061_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291632377_test3.resx">
+      <DependentUpon>201909291632377_test3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291633523_test4.resx">
+      <DependentUpon>201909291633523_test4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291640122_test5.resx">
+      <DependentUpon>201909291640122_test5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -29,7 +29,7 @@ namespace Movies.DataModel
 
             modelBuilder.Entity<Films>()
                 .Property(e => e.AboutFilm)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Producers>()
                 .HasMany(e => e.Films)

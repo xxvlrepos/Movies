@@ -31,8 +31,6 @@ namespace Movies.View.Admin
             logic = new AdminLogic();
 
             LoadDB();
-
-            
         }
 
         // Метод для загрузки данных из БД
@@ -46,11 +44,11 @@ namespace Movies.View.Admin
             try
             {
                 var film = (DataModel.Films)(FilmsGrid.SelectedValue);
-            using (MyDB db = new MyDB())
-            {
-                db.Films.Remove(db.Films.FirstOrDefault(s => s.IdFilm == film.IdFilm));
-                db.SaveChanges();
-                LoadDB();
+                using (MyDB db = new MyDB())
+                {
+                    db.Films.Remove(db.Films.FirstOrDefault(s => s.IdFilm == film.IdFilm));
+                    db.SaveChanges();
+                    LoadDB();
                 }
             }
             catch (Exception ex)
