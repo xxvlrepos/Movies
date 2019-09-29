@@ -113,7 +113,7 @@ namespace Movies.View.Admin
         private async void AddClick(object sender, RoutedEventArgs e)
         {
             // Проверяем на заполненные строки
-            if (!string.IsNullOrWhiteSpace(name.Text) && !string.IsNullOrWhiteSpace(family.Text) && !string.IsNullOrWhiteSpace(surname.Text) && !string.IsNullOrWhiteSpace((string)GenderCB_Added.SelectedItem))
+            if (!string.IsNullOrWhiteSpace(name.Text) && !string.IsNullOrWhiteSpace(family.Text) && !string.IsNullOrWhiteSpace((string)GenderCB_Added.SelectedItem))
             {
                 // Добавляем актера
                 bool ActorAdded = await logic.AddActor(new Actors() { Name = name.Text, Family = family.Text, Surname = surname.Text, Gender = (string)GenderCB_Added.SelectedItem });
