@@ -1,4 +1,4 @@
-﻿<Page x:Class="Movies.View.Admin.ActorsPage"
+﻿<Page x:Class="Movies.View.Admin.ProducerPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,9 @@
       xmlns:local="clr-namespace:Movies.View.Admin"
       mc:Ignorable="d" 
       xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-      d:DesignHeight="450" d:DesignWidth="615"
-      Title="ActorsPage">
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProducerPage">
+
     <Page.Resources>
         <Style BasedOn="{StaticResource MaterialDesignTextBox}"
            TargetType="{x:Type TextBox}">
@@ -15,11 +16,14 @@
             <Setter Property="Padding" Value="10 0" />
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
         </Style>
+        <!--<Style TargetType="md:Underline">
+            <Setter Property="MaxLength" Value="30"/>
+        </Style>-->
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
-        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+        <Style BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
         <Style x:Key="DGC_NumericColumnStyle" TargetType="TextBlock">
@@ -31,18 +35,23 @@
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid SizeChanged="Page_SizeChanged" VerticalAlignment="Top" Grid.Column="0"  x:Name="ActorsGrid" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="False" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" SelectionChanged="ActorsGrid_SelectionChanged">
+        <DataGrid SizeChanged="ActorsGrid_SizeChanged" MaxHeight="450" VerticalAlignment="Top" Grid.Column="0"  x:Name="ActorsGrid" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="False" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" SelectionChanged="ActorsGrid_SelectionChanged">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Номер" Binding="{Binding IdActor}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Width="*" Header="Имя" Binding="{Binding Name}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Width="*" Header="Фамилия" Binding="{Binding Family}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Width="*" Header="Отчество" Binding="{Binding Surname}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Width="*" Header="Пол" Binding="{Binding Gender}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Номер" Binding="{Binding idProducer}" ElementStyle="{StaticResource DGC_NumericColumnStyle}" />
+                <DataGridTextColumn Width="20*" Header="Имя" Binding="{Binding Name}"  ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Фамилия" Binding="{Binding Family}"  ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Отчество" Binding="{Binding Surname}"  ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="20*" Header="Пол" Binding="{Binding Gender}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel VerticalAlignment="Center" Grid.Column="1">
             <StackPanel VerticalAlignment="Center" Margin="10">
-                <Label Content="Добавление актера"/>
+                <Label Content="Добавление продюсера"/>
                 <TextBox x:Name="name" md:HintAssist.Hint="Введите имя"/>
                 <TextBox x:Name="family" md:HintAssist.Hint="Введите фамилию"/>
                 <TextBox x:Name="surname" md:HintAssist.Hint="Введите отчество"/>

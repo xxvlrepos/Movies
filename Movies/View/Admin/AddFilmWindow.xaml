@@ -6,8 +6,13 @@
         xmlns:local="clr-namespace:Movies.View.Admin"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Окно добавления фильма" Height="530" Width="800" MinWidth="600" MinHeight="530" MaxHeight="668" MaxWidth="1024" WindowStartupLocation="CenterScreen">
+        Title="Окно добавления фильма" Height="450" Width="600" MinWidth="600" MinHeight="450" WindowStartupLocation="CenterScreen">
     <Window.Resources>
+        <!--<Style BasedOn="{StaticResource MaterialDesignTextBox}"
+           TargetType="{x:Type ComboBox}">
+            <Setter Property="Padding" Value="10 0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>-->
         <Style TargetType="Label">
             <Setter Property="Width" Value="150"/>
             <Setter Property="FontSize" Value="14"/>
@@ -76,7 +81,7 @@
             <StackPanel>
                 <Label Content="Постер фильма" HorizontalContentAlignment="Center"/>
                 <Border Margin="10" BorderBrush="AliceBlue" BorderThickness="1">
-                    <Image MinHeight="150" MaxHeight="230" x:Name="img">
+                    <Image Height="150" x:Name="img">
                         <Image.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="Удалить изображение"/>
@@ -86,22 +91,27 @@
                 </Border>
                 <Button Content="Добавить постер" Click="AddPoster_Click"/>
             </StackPanel>
-            <StackPanel>
-                <Label Content="Описание фильма" HorizontalContentAlignment="Center"/>
+            
+        </StackPanel>
+        <Grid Grid.Row="1" Grid.Column="1" Margin="0 90 10 20">
+            <DockPanel Margin="0 0 0 35">
+                <Label Content="Описание фильма" HorizontalContentAlignment="Center" DockPanel.Dock="Top"/>
                 <TextBox
+                    MaxLength="1000"
+                    DockPanel.Dock="Top"
+                        VerticalAlignment="Stretch"
                     x:Name="AboutFilm"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"                    
-                    VerticalAlignment="Top"
+                    
                     AcceptsReturn="True"
                     TextWrapping="Wrap"
                     VerticalScrollBarVisibility="Auto"
-                    Height="80"
+                    
                     materialDesign:HintAssist.Hint="Описание фильма"
                     />
-                <Button Content="Добавить фильм" Margin="0, 10" Click="AddFilm_Click"/>
-            </StackPanel>
-        </StackPanel>
-
+            </DockPanel>
+            <Button Content="Добавить фильм" Click="AddFilm_Click" VerticalAlignment="Bottom"/>
+        </Grid>
         <!--<Label  Content="Продюсер:" HorizontalAlignment="Left" Height="29" Margin="30,60,0,0" VerticalAlignment="Top" Width="105"/>
         <Label  Content="Год:" HorizontalAlignment="Left" Height="29" Margin="30,90,0,0" VerticalAlignment="Top" Width="105"/>
         <Label x:Name="Genre" Content="Жанр:" HorizontalAlignment="Left" Height="29" Margin="30,120,0,0" VerticalAlignment="Top" Width="105"/>

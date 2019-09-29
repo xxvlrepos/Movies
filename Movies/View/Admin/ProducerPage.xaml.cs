@@ -17,24 +17,23 @@ using System.Windows.Shapes;
 namespace Movies.View.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для ActorsPage.xaml
+    /// Логика взаимодействия для ProducerPage.xaml
     /// </summary>
-    public partial class ActorsPage : Page
+    public partial class ProducerPage : Page
     {
 
         #region Свойства
 
         LogicApp.AdminLogic logic; // Админская логика
-        Actors actor; // Актер
+        Producers producer; // Продюссер
 
         #endregion
 
-        public ActorsPage()
+        public ProducerPage()
         {
             InitializeComponent();
 
             logic = new LogicApp.AdminLogic();
-
 
             // Инициализируем итемссурс для гендеров актера
             GenderCB_Added.ItemsSource = new List<string>()
@@ -49,23 +48,23 @@ namespace Movies.View.Admin
 
         public async void Load()
         {
-            ActorsGrid.ItemsSource = await logic.GetActorsAsync();
+            ActorsGrid.ItemsSource = await logic.GetProducersAsync();
         }
 
 
         #region WPF События
 
         // Метод инициализирует данные актера из DataGrid в Edit-компоненты
-        private void InitializationActorFromDG(Actors myactor)
+        private void InitializationActorFromDG(Producers myproducer)
         {
-            if (myactor != null)
+            if (myproducer != null)
             {
-                NameEditBox.Text = myactor.Name;
-                FamilyEditBox.Text = myactor.Family;
-                SurnameEditBox.Text = myactor.Surname;
-                GenderCB_Edit.SelectedItem = myactor.Gender;
+                NameEditBox.Text = myproducer.Name;
+                FamilyEditBox.Text = myproducer.Family;
+                SurnameEditBox.Text = myproducer.Surname;
+                GenderCB_Edit.SelectedItem = myproducer.Gender;
 
-                actor = myactor;
+                producer = myproducer;
             }
             else
             {
@@ -74,7 +73,7 @@ namespace Movies.View.Admin
                 SurnameEditBox.Text = string.Empty;
                 GenderCB_Edit.SelectedItem = null;
 
-                actor = null; // сбрасываем актера
+                producer = null; // сбрасываем актера
             }
         }
 
@@ -82,20 +81,20 @@ namespace Movies.View.Admin
         private async void EditClick(object sender, RoutedEventArgs e)
         {
             // Если выбрали актера
-            if (actor != null)
+            if (producer != null)
             {
-                actor.Name = NameEditBox.Text;
-                actor.Family = FamilyEditBox.Text;
-                actor.Surname = SurnameEditBox.Text;
-                actor.Gender = (string)GenderCB_Edit.SelectedItem;
+                producer.Name = NameEditBox.Text;
+                producer.Family = FamilyEditBox.Text;
+                producer.Surname = SurnameEditBox.Text;
+                producer.Gender = (string)GenderCB_Edit.SelectedItem;
 
 
                 // Редактируем актера
-                bool edit = await logic.EditActor(actor);
+                bool edit = await logic.EditProducerAsync(producer);
 
                 // Если актер редактирован успешно, то загрузи по новой базу данных актеров
-                if (edit == true)                    
-                    ActorsGrid.ItemsSource = await logic.GetActorsAsync();
+                if (edit == true)
+                    Load();
 
                 InitializationActorFromDG(null); // Сбрасываем Edit-компоненты                
             }
@@ -106,7 +105,7 @@ namespace Movies.View.Admin
         // Событие на выбор из дата грида актера
         private void ActorsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            InitializationActorFromDG((Actors)ActorsGrid.SelectedItem);
+            InitializationActorFromDG((Producers)ActorsGrid.SelectedItem);
         }
 
         // Кнопка добавления актера
@@ -116,7 +115,7 @@ namespace Movies.View.Admin
             if (!string.IsNullOrWhiteSpace(name.Text) && !string.IsNullOrWhiteSpace(family.Text) && !string.IsNullOrWhiteSpace(surname.Text) && !string.IsNullOrWhiteSpace((string)GenderCB_Added.SelectedItem))
             {
                 // Добавляем актера
-                bool ActorAdded = await logic.AddActor(new Actors() { Name = name.Text, Family = family.Text, Surname = surname.Text, Gender = (string)GenderCB_Added.SelectedItem });
+                bool ActorAdded = await logic.AddProducerAsync(new Producers() { Name = name.Text, Family = family.Text, Surname = surname.Text, Gender = (string)GenderCB_Added.SelectedItem });
 
                 // Если актер добавлен то загрузи в DataGrid актеров и обнули поля
                 if (ActorAdded)
@@ -139,7 +138,7 @@ namespace Movies.View.Admin
 
         #endregion
 
-        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void ActorsGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             ActorsGrid.MaxHeight = this.WindowHeight - 80;
         }
