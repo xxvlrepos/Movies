@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Movies.DataModel
 {
+    using System;
+    using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
+
     public partial class UserDB : DbContext
     {
         public UserDB(string dbName = "name=UserDB")
@@ -30,15 +28,7 @@ namespace Movies.DataModel
                 .IsFixedLength();
 
             modelBuilder.Entity<Films>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Films>()
                 .Property(e => e.AboutFilm)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Genres>()
-                .Property(e => e.GenreName)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Producers>()
