@@ -49,21 +49,34 @@ namespace Movies.LogicApp
             return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
         }
 
-        // Метод, который получает список фильмов. Айди статуса жанра необязательный параметр. Если он не указан, то выдаст все фильмы
-        public async Task<List<Films>> GetFilmsAsync(byte idStatusGenre = 0)
+        // Метод, который получает ВЕСЬ список фильмов.
+        public async Task<List<Films>> GetFilmsAsync()
         {
             try
             {
                 return await Task.Run(() =>
                 {
-                    // Если не передали статус аккаунта, то верни всех пользователей
-                    if (idStatusGenre == 0)
-                        using (UserDB db = new UserDB())
-                            return db.Films.ToList();
-                    // Иначе, если статус аккаунта передали, то верни аккаунты по статусу
-                    else
-                        using (UserDB db = new UserDB())
-                            return db.Films.Where(i => i.IdGenre == idStatusGenre).ToList();
+                    using (UserDB db = new UserDB())
+                        return db.Films.Include(p => p.Genres).Include(p => p.Producers).ToList();
+                });
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
+        }
+
+        // Метод, который получает список фильмов по айди жанра.
+        public async Task<List<Films>> GetFilmsAsync(byte idStatusGenre)
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    using (UserDB db = new UserDB())
+                        return db.Films.Include(p => p.Genres).Include(p => p.Producers).Where(i => i.IdGenre == idStatusGenre).ToList();
                 });
             }
             catch (Exception)

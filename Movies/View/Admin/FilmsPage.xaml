@@ -18,16 +18,15 @@
     <Grid>
         <DataGrid x:Name="FilmsGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="381" IsReadOnly="True" CanUserDeleteRows="True" VerticalAlignment="Top" Width="788" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" Grid.RowSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Название фильма" Width="3*" Binding="{Binding Name}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Header="Режиссер" Width="2*" Binding="{Binding Producers.GetProducerFio}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Header="Жанр" Width="1*" Binding="{Binding Genres.GenreName}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Header="Дата" Width="1*" Binding="{Binding date}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Header="Страна" Width="1*" Binding="{Binding Country}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Header="Название фильма" Width="6*" Binding="{Binding Name}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Header="Режиссер" Width="4*" Binding="{Binding Producers.GetProducerFIO}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Header="Жанр" Width="2*" Binding="{Binding Genres.GenreName}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Header="Дата" Width="3*" Binding="{Binding Year}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Header="Страна" Width="2*" Binding="{Binding Country}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu Background="#FFF3F3F3">
                     <MenuItem x:Name="Add" Click="Add_Click" Header="Добавить"/>
-                    <MenuItem x:Name="Edit" Click="Edit_Click" Header="Изменить" />
                     <MenuItem x:Name="Delete" Click="Delete_Click" Header="Удалить" />
                 </ContextMenu>
             </DataGrid.ContextMenu>

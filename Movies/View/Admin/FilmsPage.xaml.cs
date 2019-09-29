@@ -22,16 +22,23 @@ namespace Movies.View.Admin
     /// </summary>
     public partial class FilmsPage : Page
     {
+
+        AdminLogic logic;
+
         public FilmsPage()
         {
             InitializeComponent();
+            logic = new AdminLogic();
+
             LoadDB();
+
+            
         }
 
         // Метод для загрузки данных из БД
         private async void LoadDB()
         {
-            FilmsGrid.ItemsSource = await new AdminLogic().GetFilmsAsync();
+            FilmsGrid.ItemsSource = await logic.GetFilmsAsync();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -53,30 +60,30 @@ namespace Movies.View.Admin
         }
 
 
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
+        //private void Edit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
 
-                var i = FilmsGrid.SelectedValue;
-                if (i != null)
-                {
-                    using (MyDB db = new MyDB())
-                    {
-                        db.Entry(i).State = System.Data.Entity.EntityState.Modified;
-                        db.SaveChanges();
-
-
-                    }
-                }
+        //        var i = FilmsGrid.SelectedValue;
+        //        if (i != null)
+        //        {
+        //            using (MyDB db = new MyDB())
+        //            {
+        //                db.Entry(i).State = System.Data.Entity.EntityState.Modified;
+        //                db.SaveChanges();
 
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //            }
+        //        }
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
