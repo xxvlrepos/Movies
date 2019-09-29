@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movies.View.Admin"
         mc:Ignorable="d"
-        Title="AdminWindow" MinHeight="530" MinWidth="800" Height="530" Width="800" MaxHeight="530" Background="#FFF3F3F3" WindowStartupLocation="CenterScreen">
+        Title="AdminWindow" MinHeight="530" MinWidth="800" Height="530" Width="800" MaxHeight="530" Background="#FFF3F3F3" WindowStartupLocation="CenterScreen" Icon="/Movies;component/Images/icon.png">
     <Grid>
         <StackPanel>
             <Menu Height="30" VerticalAlignment="Top" Background="#FFF3F3F3">

@@ -24,5 +24,7 @@ namespace Movies.View.User
             InitializeComponent();
             frame.Navigate(new FilmsPage());
         }
+
+       
     }
 }
