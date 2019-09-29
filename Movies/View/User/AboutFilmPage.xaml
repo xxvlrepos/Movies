@@ -1,0 +1,126 @@
+﻿<Page x:Class="Movies.View.User.AboutFilmPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Movies.View.User"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1024"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="AboutFilmPage">
+
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="20 0 0 0" Height="30" Content="Go Back" Grid.Column="0" Click="Button_Click"/>
+            <Label Grid.Column="1" x:Name="FilmName" FontSize="24" Margin="0 0 120 0" HorizontalContentAlignment="Center"/>
+        </Grid>
+        
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Column="0" Grid.Row="0" Margin="20 0 10 0">
+                <Image Stretch="Fill" x:Name="imgposter"/>
+            </DockPanel>
+            <Grid Grid.Row="0" Margin="0 0 20 0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="100" Content="Режиссер"/>
+                        <Label x:Name="producer"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="100" Content="Страна"/>
+                        <Label x:Name="country"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="100" Content="Год"/>
+                        <Label x:Name="year"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="100" Content="Жанр"/>
+                        <Label x:Name="genree"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Width="100" Content="Рейтинг"/>
+                        <Label x:Name="rating"/>
+                    </StackPanel>
+
+                </StackPanel>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <DockPanel>
+                        <Label Content="Список актеров" DockPanel.Dock="Top" HorizontalContentAlignment="Center"/>
+                        <ListView DisplayMemberPath="GetActor" DockPanel.Dock="Top" x:Name="actorslist"/>
+                    </DockPanel>
+                </Grid>
+                <StackPanel Grid.ColumnSpan="2" Grid.Row="1">
+                    <TextBlock TextWrapping="WrapWithOverflow"  x:Name="aboutfilm"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.ColumnSpan="2" Grid.Row="1">
+
+                <DockPanel>
+                    <Label DockPanel.Dock="Top" FontSize="24" HorizontalContentAlignment="Center" Content="Комментарии и оценки пользователей"/>
+                    <Border Margin="20 0" BorderBrush="Black" BorderThickness="0.5">
+                        <ListView DisplayMemberPath="GetUserComment" x:Name="ratingslist"  DockPanel.Dock="Top"/>
+                    </Border>
+                </DockPanel>
+            </Grid>
+            <DockPanel Margin="20 0 20 10" Grid.Row="2" Grid.ColumnSpan="2">
+                <StackPanel DockPanel.Dock="Top">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="9*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Slider Margin="10 7 10 0" Minimum="1" Maximum="10" Value="1" IsSnapToTickEnabled="True" TickFrequency="1" Height="30" ValueChanged="Slider_ValueChanged"/>
+                        <Label FontSize="24" Content="1" Grid.Column="1" HorizontalContentAlignment="Center" x:Name="star"/>
+                    </Grid>
+
+                </StackPanel>
+                <TextBox
+                    MaxLength="300"
+                    DockPanel.Dock="Top"
+                        VerticalAlignment="Stretch"
+                    x:Name="CommentFilm"
+                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"                    
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    Padding="0, 0, 20, 0"
+                    materialDesign:HintAssist.Hint="Комментарий к фильму"
+                    
+                    />
+            </DockPanel>
+            <Button Click="SendRating_Click" Grid.Row="2" Grid.ColumnSpan="2" Margin="20 0 20 10" Width="120" Content="Отправить" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        </Grid>
+    </Grid>
+</Page>

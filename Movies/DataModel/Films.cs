@@ -8,7 +8,7 @@ namespace Movies.DataModel
 
     public partial class Films
     {
-        #region Свойства
+        #region Вспомогательные свойства для вывода
 
         public string DateFilm
         {
@@ -41,8 +41,6 @@ namespace Movies.DataModel
         public DateTime? Year { get; set; }
 
         public int IdGenre { get; set; }
-
-        public int? Rating { get; set; }
 
         [Column(TypeName = "image")]
         public byte[] Poster { get; set; }

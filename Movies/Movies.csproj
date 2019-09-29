@@ -107,6 +107,7 @@
     <Compile Include="LogicApp\AdminLogic.cs" />
     <Compile Include="LogicApp\CommonLogic.cs" />
     <Compile Include="LogicApp\Helps\ImageLogic.cs" />
+    <Compile Include="LogicApp\RatingsLogic.cs" />
     <Compile Include="Migrations\201909241603319_test1.cs" />
     <Compile Include="Migrations\201909241603319_test1.Designer.cs">
       <DependentUpon>201909241603319_test1.cs</DependentUpon>
@@ -126,6 +127,14 @@
     <Compile Include="Migrations\201909291640122_test5.cs" />
     <Compile Include="Migrations\201909291640122_test5.Designer.cs">
       <DependentUpon>201909291640122_test5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909291728507_test6.cs" />
+    <Compile Include="Migrations\201909291728507_test6.Designer.cs">
+      <DependentUpon>201909291728507_test6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909291849066_test7.cs" />
+    <Compile Include="Migrations\201909291849066_test7.Designer.cs">
+      <DependentUpon>201909291849066_test7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="View\Admin\ActorsPage.xaml.cs">
@@ -158,6 +167,9 @@
     </Compile>
     <Compile Include="View\Main\RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\AboutFilmPage.xaml.cs">
+      <DependentUpon>AboutFilmPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\User\FilmsPage.xaml.cs">
       <DependentUpon>FilmsPage.xaml</DependentUpon>
@@ -201,6 +213,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\User\AboutFilmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\User\FilmsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -238,6 +254,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909291640122_test5.resx">
       <DependentUpon>201909291640122_test5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291728507_test6.resx">
+      <DependentUpon>201909291728507_test6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909291849066_test7.resx">
+      <DependentUpon>201909291849066_test7.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

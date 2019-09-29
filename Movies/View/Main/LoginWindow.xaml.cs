@@ -47,7 +47,7 @@ namespace Movies.View.Main
                     if (user.IdStatus == 0) // Если админ, то реализация логики администратора
                         LogicApp = new AdminLogic();
 
-                    LogicApp.ShowWindow();
+                    LogicApp.ShowWindow(user);
 
 
                     this.Close(); // Закрываем текущее окно

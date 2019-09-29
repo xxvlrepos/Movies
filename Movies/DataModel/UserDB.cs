@@ -38,7 +38,7 @@ namespace Movies.DataModel
 
             modelBuilder.Entity<Ratings>()
                 .Property(e => e.Comment)
-                .IsUnicode(false);
+                .IsUnicode(true);
         }
     }
 }

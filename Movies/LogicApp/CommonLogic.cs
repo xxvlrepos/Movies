@@ -18,8 +18,11 @@ namespace Movies.LogicApp
     class CommonLogic
     {
 
+        public RatingsLogic LogicRatings { get; private set; } // Логика рейтингов
+
         public CommonLogic()
         {
+            LogicRatings = new RatingsLogic();
         }
 
 
@@ -89,6 +92,7 @@ namespace Movies.LogicApp
         }
 
         /// <summary>
+        /// /// Метод который загружает весь список фильмов по жанрам
         /// </summary>
         /// <param name="idStatusGenre">Айди жанра фильма</param>
         /// <param name="LoadAllData">Загрузка всей инфы (Постеры, комменты, инфа о фильме)</param>
@@ -131,6 +135,31 @@ namespace Movies.LogicApp
             return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
         }
 
+        /// <summary>
+        /// Метод, который загружает один фильм
+        /// </summary>
+        /// <param name="IdFilm">Айди фильма</param>
+        /// <returns>Фильм</returns>
+        public async Task<Films> GetOneFilmAsync(int IdFilm)
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    using (UserDB db = new UserDB())
+                    {
+                        return db.Films.Include(i => i.Genres).Include(i => i.Producers).Include(i => i.ActorsFilm).Include("ActorsFilm.Actors").Include(i => i.Ratings).FirstOrDefault(i => i.IdFilm == IdFilm);
+                    }
+                });
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если не найдено ничего
+        }
+
         // Метод авторизации в асинхронном режиме
         public async Task<Users> AuthorizationAsync(string login, string password)
         {
@@ -142,7 +171,7 @@ namespace Movies.LogicApp
                     return await Task.Run(() =>
                     {
                         using (UserDB db = new UserDB())
-                            return db.Users.FirstOrDefault(i => i.Login == login && i.Pass == password);
+                            return db.Users.Include(i => i.Ratings).FirstOrDefault(i => i.Login == login && i.Pass == password);
                     });
                 }
             }
@@ -163,9 +192,9 @@ namespace Movies.LogicApp
 
         #region Методы работы с окнами
 
-        public virtual void ShowWindow()
+        public virtual void ShowWindow(Users user)
         {
-            Window window = new View.User.UserWindow();
+            Window window = new View.User.UserWindow(user);
             window.Show();
         }
 

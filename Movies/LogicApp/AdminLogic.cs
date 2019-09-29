@@ -209,7 +209,7 @@ namespace Movies.LogicApp
 
         #region Работа с окнами
 
-        public override void ShowWindow()
+        public override void ShowWindow(Users user)
         {
             Window window1 = new View.Admin.AdminWindow();
             window1.Show();

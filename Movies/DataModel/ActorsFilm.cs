@@ -9,6 +9,20 @@ namespace Movies.DataModel
     [Table("ActorsFilm")]
     public partial class ActorsFilm
     {
+
+        #region Доп свойства
+
+        public string GetActor
+        {
+            get => $"{Actors.GetFIO} - {Role}";
+        }
+
+        #endregion
+
+        public ActorsFilm()
+        {
+
+        }
         public ActorsFilm(int IdFilm, int IdActor, string Role)
         {
             this.IdFilm = IdFilm;
