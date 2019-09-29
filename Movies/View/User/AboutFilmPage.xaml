@@ -90,7 +90,27 @@
                 <DockPanel>
                     <Label DockPanel.Dock="Top" FontSize="24" HorizontalContentAlignment="Center" Content="Комментарии и оценки пользователей"/>
                     <Border Margin="20 0" BorderBrush="Black" BorderThickness="0.5">
-                        <ListView DisplayMemberPath="GetUserComment" x:Name="ratingslist"  DockPanel.Dock="Top"/>
+                        <ListBox x:Name="ratingslist" HorizontalContentAlignment="Stretch" VirtualizingPanel.ScrollUnit="Pixel" >
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="Black" BorderThickness="1">
+                                        <StackPanel>
+                                            <StackPanel Margin="10 0    " Orientation="Horizontal">
+                                                <Label FontSize="18" FontWeight="Bold" Content="{Binding Path=Users.Login}"/>
+                                                <Label FontSize="16" VerticalContentAlignment="Center" Margin="-10 0" Content=" ставит фильму оценку "/>
+                                                <Label FontSize="18" FontWeight="Bold" Content="{Binding Path=Rating}"/>
+                                            </StackPanel>
+                                            <TextBox IsEnabled="False" Text="{Binding Path=Comment}"
+                        x:Name="CommentFilm"
+                        Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"                    
+                        AcceptsReturn="True"
+                                                     materialDesign:HintAssist.Hint="Комментарий"
+                        TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                     </Border>
                 </DockPanel>
             </Grid>
@@ -109,7 +129,7 @@
                 <TextBox
                     MaxLength="300"
                     DockPanel.Dock="Top"
-                        VerticalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
                     x:Name="CommentFilm"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"                    
                     AcceptsReturn="True"

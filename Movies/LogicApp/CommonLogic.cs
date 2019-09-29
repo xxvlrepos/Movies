@@ -27,7 +27,7 @@ namespace Movies.LogicApp
 
 
         #region Секция методов для работы с БД
-        
+
         // Метод, который получает список жанров.
         public async Task<List<Genres>> GetGenresAsync()
         {

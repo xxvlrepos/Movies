@@ -1,9 +1,12 @@
 ﻿using Movies.DataModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Movies.LogicApp
 {
@@ -30,31 +33,6 @@ namespace Movies.LogicApp
                     using (UserDB db = new UserDB())
                     {
                         return db.Ratings.FirstOrDefault(i => i.IdFilm == IdFilm && i.IdUser == IdUser);
-                    }
-                });
-            }
-            catch (Exception)
-            {
-                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
-            }
-
-            return null; // Возвращаем null, в случае, если не найдено ничего
-        }
-
-        /// <summary>
-        /// Получает список рейтингов фильма
-        /// </summary>
-        /// <param name="IdFilm">Айди фильма</param>
-        /// <returns>Возвращает список рейтингов фильма</returns>
-        public async Task<List<Ratings>> GetRatingsOnFilm(int IdFilm)
-        {
-            try
-            {
-                return await Task.Run(() =>
-                {
-                    using (UserDB db = new UserDB())
-                    {
-                        return db.Ratings.Where(i => i.IdFilm == IdFilm).ToList();
                     }
                 });
             }
@@ -127,6 +105,31 @@ namespace Movies.LogicApp
             }
 
             return false; ; // Возвращаем null, в случае, если не найдено ничего
+        }
+
+        /// <summary>
+        /// Получает список рейтингов фильма
+        /// </summary>
+        /// <param name="IdFilm">Айди фильма</param>
+        /// <returns>Возвращает список рейтингов фильма</returns>
+        public async Task<List<Ratings>> GetRatingsOnFilm(int IdFilm)
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    using (UserDB db = new UserDB())
+                    {
+                        return db.Ratings.Include(i => i.Users).Where(i => i.IdFilm == IdFilm).ToList();
+                    }
+                });
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если не найдено ничего
         }
     }
 

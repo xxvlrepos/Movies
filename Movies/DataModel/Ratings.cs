@@ -10,9 +10,9 @@ namespace Movies.DataModel
     {
         #region Вспомогательные свойства
 
-        public string GetUserComment
+        public string GetUserTitle
         {
-            get => $"{IdRating}) поставил рейтинг {Rating} \nКоммент: {Comment}";
+            get => $"{Users.Login}) поставил фильму рейтинг {Rating}";
         }
 
         #endregion
