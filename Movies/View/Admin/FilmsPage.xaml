@@ -7,24 +7,26 @@
       mc:Ignorable="d" 
       d:DesignHeight="377" d:DesignWidth="781"
       Title="FilmsPage">
-
+    <Page.Resources>
+        <Style BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="DGC_NumericColumnStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="329*"/>
-            <RowDefinition Height="48*"/>
-        </Grid.RowDefinitions>
         <DataGrid x:Name="FilmsGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="381" IsReadOnly="True" CanUserDeleteRows="True" VerticalAlignment="Top" Width="788" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" Grid.RowSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Название фильма" Width="190" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Режиссер" Width="245" Binding="{Binding Producers.GetProducerFio}"/>
-                <DataGridTextColumn Header="Жанр" Width="200" Binding="{Binding Genres.GenreName}"/>
-                <DataGridTextColumn Header="Дата" Width="65" Binding="{Binding date}"/>
-                <DataGridTextColumn Header="Страна" Width="200" Binding="{Binding Country}"/>
+                <DataGridTextColumn Header="Название фильма" Width="6*" Binding="{Binding Name}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Header="Режиссер" Width="4*" Binding="{Binding Producers.GetProducerFIO}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Header="Жанр" Width="2*" Binding="{Binding Genres.GenreName}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Header="Дата" Width="3*" Binding="{Binding DateFilm}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Header="Страна" Width="2*" Binding="{Binding Country}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu Background="#FFF3F3F3">
                     <MenuItem x:Name="Add" Click="Add_Click" Header="Добавить"/>
-                    <MenuItem x:Name="Edit" Click="Edit_Click" Header="Изменить" />
                     <MenuItem x:Name="Delete" Click="Delete_Click" Header="Удалить" />
                 </ContextMenu>
             </DataGrid.ContextMenu>

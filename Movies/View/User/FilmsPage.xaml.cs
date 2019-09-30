@@ -1,11 +1,14 @@
 ﻿using Movies.DataModel;
+using Movies.LogicApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -21,19 +24,33 @@ namespace Movies.View.User
     /// </summary>
     public partial class FilmsPage : Page
     {
-        public FilmsPage()
+
+        CommonLogic logic;
+        Users user;
+
+        public FilmsPage(Users user)
         {
             InitializeComponent();
 
+            this.user = user;
+            logic = new CommonLogic();
             load();
         }
 
         // Метод для загрузки данных с БД
-        void load()
+        async void load()
         {
             // Загружаем фильмы из БД
-            list.ItemsSource = new MyDB().Films.ToList();
+            list.ItemsSource = await logic.GetFilmsAsync();
         }
 
+        protected void HandleDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            var film = (Films)list.SelectedItem;
+            NavigationService.Navigate(new AboutFilmPage(film.IdFilm, user));            
+        }
+
+       
     }
 }

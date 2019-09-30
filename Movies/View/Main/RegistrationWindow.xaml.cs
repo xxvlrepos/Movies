@@ -45,14 +45,16 @@ namespace Movies.View.Main
             {
                 using (MyDB db = new MyDB())
                 {
+
                     try
                     {
-                        db.Users.Add(new Users(Login.Text, Pass.Password));
+
+                        db.Users.Add(new Users() { Login = Login.Text, Pass = Pass.Password, IdStatus = 1 });
                         db.SaveChanges();
 
                         MessageBox.Show($"Пользователь успешно зарегистрирован");
                         GoBack();
-                        
+
                     }
                     catch (System.Data.Entity.Infrastructure.DbUpdateException)
                     {
@@ -62,7 +64,7 @@ namespace Movies.View.Main
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    
+
                 }
             }
             else

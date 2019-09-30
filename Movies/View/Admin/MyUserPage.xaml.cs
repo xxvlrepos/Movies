@@ -1,4 +1,5 @@
 ﻿using Movies.DataModel;
+using Movies.LogicApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,14 @@ using System.Windows.Shapes;
 namespace Movies.View.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для UsersPage.xaml
+    /// Логика взаимодействия для MyUserPage.xaml
     /// </summary>
-    public partial class UsersPage : Page
+    public partial class MyUserPage : Page
     {
-        public UsersPage()
+
+        AdminLogic logic = new AdminLogic();
+
+        public MyUserPage()
         {
             InitializeComponent();
             LoadDB();
@@ -29,13 +33,10 @@ namespace Movies.View.Admin
             int a = 5;
         }
 
-        public void LoadDB()
+        // Метод загрузки данных пользователей из БД
+        public async void LoadDB()
         {
-            using (MyDB db = new MyDB())
-            {
-                List<Users> users = new MyDB().Users.ToList();
-                UsersGrid.ItemsSource = users;
-            }
+            UsersGrid.ItemsSource = await logic.GetUsersAsync();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -48,7 +49,6 @@ namespace Movies.View.Admin
         {
             // Получаем выбранного пользователя с SelectedValue
             Users user = (Users)UsersGrid.SelectedValue;
-
 
             // Если выбрали пользователя, то удали его
             if (user != null)
@@ -64,48 +64,34 @@ namespace Movies.View.Admin
                         UsersGrid.ItemsSource = db.Users.ToList(); // Прогружаем список пользователей
                     }
                 }
-
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-
                 }
-                //private void Delete_Click(object sender, RoutedEventArgs e)
-                //{
-                //    // Получаем выбранного пользователя с SelectedValue
-                //    Users user = (Users)UsersGrid.SelectedValue;
 
+            }
+        }
 
-                //        }
-                //        catch(Exception ex)
-                //        {
-                //            MessageBox.Show(ex.Message);
-                //        }   
-
-                //    }
-                //}
-
-                //private void edit_click(object sender, routedeventargs e)
-                //{
-                //    //db.
-                //    try
-                //    {
-                //        var i = (users)(usersgrid.selectedvalue);
-                //        if (i != null)
-                //        {
-                //            using (mydb db = new mydb())
-                //            {
-                //                db.entry(i).state = system.data.entity.entitystate.modified;
-                //                db.savechanges();
-                //                loaddb();
-                //            }
-                //        }
-                //    }
-                //    catch (exception ex)
-                //    {
-                //        messagebox.show(ex.message);
-                //    }
-                //}
+        // Кнопка редактирования
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            //db.
+            try
+            {
+                var i = (Users)(UsersGrid.SelectedValue);
+                if (i != null)
+                {
+                    using (MyDB db = new MyDB())
+                    {
+                        db.Entry(i).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                        LoadDB();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

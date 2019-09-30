@@ -5,18 +5,124 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movies.View.Admin"
         mc:Ignorable="d"
-        Title="AddFilmWindow" Height="450" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Окно добавления фильма" Height="600" Width="800" MinWidth="600" MinHeight="450" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!--<Style BasedOn="{StaticResource MaterialDesignTextBox}"
+           TargetType="{x:Type ComboBox}">
+            <Setter Property="Padding" Value="10 0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>-->
+        <Style TargetType="Label">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Label  Content="Название фильма:" HorizontalAlignment="Left" Height="29" Margin="30,30,0,0" VerticalAlignment="Top" Width="114"/>
-        <Label  Content="Продюсер:" HorizontalAlignment="Left" Height="29" Margin="30,60,0,0" VerticalAlignment="Top" Width="105"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="44*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350*"/>
+            <ColumnDefinition Width="350*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="10" Grid.Row="0" Grid.RowSpan="2">
+            <StackPanel>
+                <DockPanel>
+                    <Label  Content="Название фильма" />
+                    <TextBox HorizontalContentAlignment="Center" x:Name="FilmName" MaxLength="50" materialDesign:HintAssist.Hint="Введите название"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label  Content="Продюсер"/>
+                    <ComboBox DisplayMemberPath="GetProducerFIO" x:Name="ProducersCB" SelectionChanged="ProducersCB_SelectionChanged" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Выберите продюсера из списка"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label  Content="Дата выхода"/>
+                    <DatePicker x:Name="DateFilm" SelectedDateChanged="DatePicker_SelectedDateChanged" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Выберите дату фильма"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label  Content="Жанр"/>
+                    <ComboBox x:Name="GenresCB" SelectionChanged="GenresCB_SelectionChanged" DisplayMemberPath="GenreName" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Выберите жанр из списка"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label  Content="Страна"/>
+                    <ComboBox x:Name="CountriesCB" SelectionChanged="CountriesCB_SelectionChanged" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Выберите страну из списка"/>
+                </DockPanel>
+            </StackPanel>
+        </StackPanel>
+        <DockPanel Margin="10" Grid.Column="0" Grid.Row="1">
+            <Border Padding="10" Margin="0, 10" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <StackPanel>
+                        <Label Content="Актеры фильма" HorizontalContentAlignment="Center"/>
+                        <DockPanel>
+                            <Label Content="Выберите актера"/>
+                            <ComboBox x:Name="ActorsCB" DisplayMemberPath="GetFIO" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Выберите актера из списка"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Роль актера"/>
+                            <TextBox HorizontalContentAlignment="Center" x:Name="role" MaxLength="50" materialDesign:HintAssist.Hint="Введите название роли"/>
+                        </DockPanel>
+                        <Button Content="Добавить" Margin="0, 10" Click="AddActors_Click"/>
+                        <Label Content="Список актеров"/>
+                    </StackPanel>
+                    <ListView DisplayMemberPath="GetActorFromLV" x:Name="lv" ScrollViewer.CanContentScroll="False" Margin="0,170,0,0">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Удалить" Click="DeleteActors_Click"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
+                </Grid>
+            </Border>
+        </DockPanel>
+        <StackPanel Grid.Column="1" Margin="10,10,10,0" Grid.RowSpan="2">
+            <StackPanel>
+                <Label Content="Постер фильма" HorizontalContentAlignment="Center"/>
+                <Border Margin="10" BorderBrush="AliceBlue" BorderThickness="1">
+                    <Image Height="150" x:Name="img">
+                        <Image.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Удалить изображение"/>
+                            </ContextMenu>
+                        </Image.ContextMenu>
+                    </Image>
+                </Border>
+                <Button Content="Добавить постер" Click="AddPoster_Click"/>
+            </StackPanel>
+            
+        </StackPanel>
+        <Grid Grid.Row="1" Grid.Column="1" Margin="0 90 10 20">
+            <DockPanel Margin="0 0 0 35">
+                <Label Content="Описание фильма" HorizontalContentAlignment="Center" DockPanel.Dock="Top"/>
+                <TextBox
+                    MaxLength="1000"
+                    DockPanel.Dock="Top"
+                        VerticalAlignment="Stretch"
+                    x:Name="AboutFilm"
+                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"                    
+                    
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    Padding="0, 0, 20, 0"
+                    materialDesign:HintAssist.Hint="Описание фильма"
+                    />
+            </DockPanel>
+            <Button Content="Добавить фильм" Click="AddFilm_Click" VerticalAlignment="Bottom"/>
+        </Grid>
+        <!--<Label  Content="Продюсер:" HorizontalAlignment="Left" Height="29" Margin="30,60,0,0" VerticalAlignment="Top" Width="105"/>
         <Label  Content="Год:" HorizontalAlignment="Left" Height="29" Margin="30,90,0,0" VerticalAlignment="Top" Width="105"/>
         <Label x:Name="Genre" Content="Жанр:" HorizontalAlignment="Left" Height="29" Margin="30,120,0,0" VerticalAlignment="Top" Width="105"/>
         <Label x:Name="Poster" Content="Постер:" HorizontalAlignment="Left" Height="29" Margin="30,150,0,0" VerticalAlignment="Top" Width="105"/>
         <Label x:Name="Country" Content="Страна:" HorizontalAlignment="Left" Height="29" Margin="30,180,0,0" VerticalAlignment="Top" Width="105"/>
         <Label x:Name="Rating" Content="Рейтинг:" HorizontalAlignment="Left" Height="29" Margin="30,210,0,0" VerticalAlignment="Top" Width="105"/>
-        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="29" Margin="165,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="107"/>
+
+        <TextBox x:Name="Producer" HorizontalAlignment="Left" Height="29" Margin="164,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="107"/>
         <DatePicker x:Name="Year" HorizontalAlignment="Left" Height="23" Margin="165,90,0,0" VerticalAlignment="Top" Width="108"/>
-        <TextBox x:Name="Producer_Copy" HorizontalAlignment="Left" Height="29" Margin="165,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="107"/>
-        <ComboBox DisplayMemberPath="Family" x:Name="Producer" HorizontalAlignment="Left" Height="100" IsEditable="True" Margin="385,106,0,0" VerticalAlignment="Top" Width="224" />
+        <ComboBox HorizontalAlignment="Left" Height="19" Margin="168,157,0,0" VerticalAlignment="Top" Width="110"/>
+        <Image HorizontalAlignment="Left" Height="130" Margin="2,144,0,0" VerticalAlignment="Top" Width="132" Grid.Column="1"/>
+        <ComboBox HorizontalAlignment="Left" Height="19" Margin="168,130,0,0" VerticalAlignment="Top" Width="110"/>-->
     </Grid>
 </Window>
