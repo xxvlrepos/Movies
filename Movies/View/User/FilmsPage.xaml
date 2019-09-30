@@ -35,10 +35,10 @@
                                     <DockPanel>
                                         <Image HorizontalAlignment="Center" Margin="25, 10" MaxWidth="800" Source="{Binding Path=Poster}" />
                                     </DockPanel>
-                                    <StackPanel Orientation="Horizontal">
+                                    <!--<StackPanel Orientation="Horizontal">
                                         <Label Content="Рейтинг: "/>
                                         <Label Content="4"/>
-                                    </StackPanel>
+                                    </StackPanel>-->
                                 </StackPanel>
                             </DockPanel>
 
