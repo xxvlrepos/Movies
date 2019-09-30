@@ -28,13 +28,13 @@ namespace Movies.View.Admin
         {
             bool added = false;
             int i = 1;
-            if (adm.IsChecked == true) { i = 2; }
+            if (adm.IsChecked == true) { i = 0; }
 
             using (MyDB db = new MyDB())
             {
                 Users user = new Users();
-                user.Login = log.Text;
-                user.Pass = pass.Text;
+                user.Login = MyUserPage.login;
+                user.Pass = MyUserPage.passw;
                 user.IdStatus = i;
 
                 try
@@ -50,7 +50,7 @@ namespace Movies.View.Admin
                     MessageBox.Show(ex.Message);
                 }
                 if (added == true)
-                    MessageBox.Show($"Пользователь {log.Text} добавлен в БД!");
+                    MessageBox.Show($"Пользователь {MyUserPage.login} добавлен в БД!");
                 else
                     MessageBox.Show($"Ошибка добавления!");
             }
