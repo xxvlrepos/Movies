@@ -136,6 +136,10 @@
     <Compile Include="Migrations\201909291849066_test7.Designer.cs">
       <DependentUpon>201909291849066_test7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909300021262_test71.cs" />
+    <Compile Include="Migrations\201909300021262_test71.Designer.cs">
+      <DependentUpon>201909300021262_test71.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="View\Admin\ActorsPage.xaml.cs">
       <DependentUpon>ActorsPage.xaml</DependentUpon>
@@ -260,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909291849066_test7.resx">
       <DependentUpon>201909291849066_test7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909300021262_test71.resx">
+      <DependentUpon>201909300021262_test71.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
