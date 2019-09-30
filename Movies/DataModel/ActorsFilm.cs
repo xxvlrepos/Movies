@@ -9,18 +9,31 @@ namespace Movies.DataModel
     [Table("ActorsFilm")]
     public partial class ActorsFilm
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IdFilm { get; set; }
 
+        #region Доп свойства
 
+        public string GetActor
+        {
+            get => $"{Actors.GetFIO} - {Role}";
+        }
+
+        #endregion
+
+        public ActorsFilm()
+        {
+
+        }
         public ActorsFilm(int IdFilm, int IdActor, string Role)
         {
             this.IdFilm = IdFilm;
             this.IdActor = IdActor;
             this.Role = Role;
         }
+
+        [Key]
+        [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IdFilm { get; set; }
 
         [Key]
         [Column(Order = 1)]

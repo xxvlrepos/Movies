@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Movies.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,10 @@ namespace Movies.View.User
     /// </summary>
     public partial class UserWindow : Window
     {
-        public UserWindow()
+        public UserWindow(Users user)
         {
             InitializeComponent();
-            frame.Navigate(new FilmsPage());
+            frame.Navigate(new FilmsPage(user));
         }
-
-       
     }
 }

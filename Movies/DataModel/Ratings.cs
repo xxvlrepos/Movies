@@ -8,6 +8,15 @@ namespace Movies.DataModel
 
     public partial class Ratings
     {
+        #region Вспомогательные свойства
+
+        public string GetUserTitle
+        {
+            get => $"{Users.Login}) поставил фильму рейтинг {Rating}";
+        }
+
+        #endregion
+
         [Key]
         public int IdRating { get; set; }
 
@@ -15,7 +24,7 @@ namespace Movies.DataModel
 
         public int IdUser { get; set; }
 
-        [Column(TypeName = "text")]
+        [StringLength(300)]
         public string Comment { get; set; }
 
         public int? Rating { get; set; }

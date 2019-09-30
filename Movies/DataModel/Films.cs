@@ -8,6 +8,19 @@ namespace Movies.DataModel
 
     public partial class Films
     {
+        #region ¬спомогательные свойства дл€ вывода
+
+        public string DateFilm
+        {
+            get
+            {
+                return Year.Value.ToString("D");
+            }
+        }
+
+        #endregion
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Films()
         {
@@ -29,15 +42,13 @@ namespace Movies.DataModel
 
         public int IdGenre { get; set; }
 
-        public int? Rating { get; set; }
-
         [Column(TypeName = "image")]
         public byte[] Poster { get; set; }
 
         [StringLength(50)]
         public string Country { get; set; }
 
-        [Column(TypeName = "text")]
+        [StringLength(1000)]       
         public string AboutFilm { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -5,12 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movies.View.User"
         mc:Ignorable="d"
-        Title="MDB" MinHeight="450" MinWidth="800" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MDB" MinHeight="600" MinWidth="800" Height="600" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="307*"/>
-            <ColumnDefinition Width="485*"/>
-        </Grid.ColumnDefinitions>
-        <Frame x:Name="frame" NavigationUIVisibility="Hidden" Background="#FFF3F3F3" Grid.ColumnSpan="2"  />
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden" Background="#FFF3F3F3" />
     </Grid>
 </Window>

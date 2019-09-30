@@ -26,11 +26,13 @@ namespace Movies.View.User
     {
 
         CommonLogic logic;
+        Users user;
 
-        public FilmsPage()
+        public FilmsPage(Users user)
         {
             InitializeComponent();
 
+            this.user = user;
             logic = new CommonLogic();
             load();
         }
@@ -46,9 +48,7 @@ namespace Movies.View.User
         {
 
             var film = (Films)list.SelectedItem;
-
-
-            MessageBox.Show($"Айди фильма {film.Name}");
+            NavigationService.Navigate(new AboutFilmPage(film.IdFilm, user));            
         }
 
        

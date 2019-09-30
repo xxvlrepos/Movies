@@ -14,12 +14,6 @@ namespace Movies.DataModel
             Ratings = new HashSet<Ratings>();
         }
 
-        public Users(string login, string password)
-        {
-            this.Login = login;
-            this.Pass = password;
-        }
-
         [Key]
         public int IdUser { get; set; }
 

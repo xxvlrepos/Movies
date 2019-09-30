@@ -8,14 +8,8 @@
 
     public partial class Actors
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Actors()
-        {
-            ActorsFilm = new HashSet<ActorsFilm>();
-        }
 
-
-        #region Äëÿ âûâîäà â êîíòðîëû
+        #region Дополнительные свойства
 
         public string GetFIO
         {
@@ -41,6 +35,12 @@
             get => $"{Family} {Name} {Surname} - {RoleActor}";
         }
         #endregion
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Actors()
+        {
+            ActorsFilm = new HashSet<ActorsFilm>();
+        }
 
         [Key]
         public int IdActor { get; set; }

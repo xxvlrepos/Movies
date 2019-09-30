@@ -110,7 +110,7 @@ namespace Movies.View.Admin
 
         // Кнопка добавления актера
         private async void AddClick(object sender, RoutedEventArgs e)
-        {
+        {            
             // Проверяем на заполненные строки
             if (!string.IsNullOrWhiteSpace(name.Text) && !string.IsNullOrWhiteSpace(family.Text) && !string.IsNullOrWhiteSpace((string)GenderCB_Added.SelectedItem))
             {
