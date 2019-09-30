@@ -29,6 +29,8 @@ namespace Movies.View.Admin
         {
             InitializeComponent();
             LoadDB();
+
+            int a = 5;
         }
 
         // Метод загрузки данных пользователей из БД

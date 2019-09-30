@@ -19,7 +19,7 @@
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
-        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+        <Style BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
         <Style x:Key="DGC_NumericColumnStyle" TargetType="TextBlock">
@@ -33,11 +33,11 @@
         </Grid.ColumnDefinitions>
         <DataGrid SizeChanged="Page_SizeChanged" VerticalAlignment="Top" Grid.Column="0"  x:Name="ActorsGrid" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="False" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" SelectionChanged="ActorsGrid_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Номер" Binding="{Binding IdActor}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Width="*" Header="Имя" Binding="{Binding Name}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Width="*" Header="Фамилия" Binding="{Binding Family}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Width="*" Header="Отчество" Binding="{Binding Surname}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
-                <DataGridTextColumn Width="*" Header="Пол" Binding="{Binding Gender}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="*" Header="Номер" Binding="{Binding IdActor}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="*" Header="Имя" Binding="{Binding Name}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="*" Header="Фамилия" Binding="{Binding Family}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="*" Header="Отчество" Binding="{Binding Surname}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
+                <DataGridTextColumn Width="*" Header="Пол" Binding="{Binding Gender}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel VerticalAlignment="Center" Grid.Column="1">
