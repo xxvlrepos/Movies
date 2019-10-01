@@ -14,6 +14,8 @@
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         </Style>
     </Page.Resources>
+    <Grid>
+        <ListView HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource itemstyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.ScrollChanged="List_ScrollChanged">
     <Grid Background="#FFD1CFCF">
         <ListView HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource itemstyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" Margin="0,2,0,-1" >
             <ListBox.Resources>
