@@ -23,24 +23,23 @@ namespace Movies.View.Admin
     public partial class MyUserPage : Page
     {
 
+        public static string login { get; set; }
+        public static string passw { get; set; }
+
         AdminLogic logic = new AdminLogic();
 
         public MyUserPage()
         {
             InitializeComponent();
             LoadDB();
+
+            int a = 5;
         }
 
         // Метод загрузки данных пользователей из БД
         public async void LoadDB()
         {
             UsersGrid.ItemsSource = await logic.GetUsersAsync();
-        }
-
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-            Window wind = new AddUsersWindow();
-            wind.Show();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -91,6 +90,14 @@ namespace Movies.View.Admin
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        //Кнопка добавления 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window wind = new AddUsersWindow();
+            login = log.Text;
+            passw = pass.Password;
+            wind.Show();
         }
     }
 }

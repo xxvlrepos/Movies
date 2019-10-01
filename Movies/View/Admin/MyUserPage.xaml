@@ -5,14 +5,34 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Movies.View.Admin"
       mc:Ignorable="d" 
+       xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MyUserPage">
 
+    <Page.Resources>
+        <Style BasedOn="{StaticResource MaterialDesignTextBox}"
+           TargetType="{x:Type TextBox}">
+            <Setter Property="MaxLength" Value="30" />
+            <Setter Property="Padding" Value="10 0" />
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="DGC_NumericColumnStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
     <Grid Background="#FFF3F3F3" Margin="0,0,-22,-18">
-
-
-        <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="386" IsReadOnly="True" CanUserDeleteRows="True" VerticalAlignment="Top" Width="788" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False">
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" Height="386" IsReadOnly="True" CanUserDeleteRows="True" VerticalAlignment="Top" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Пользователь" Width="*" Binding="{Binding Login}"/>
                 <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Pass}"/>
@@ -20,10 +40,17 @@
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu Background="#FFF3F3F3">
-                    <MenuItem x:Name="Add" Click="Add_Click" Header="Добавить"/>
                     <MenuItem x:Name="Delete" Click="Delete_Click" Header="Удалить" />
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>
+        <StackPanel VerticalAlignment="Top" Grid.Column="1">
+            <StackPanel VerticalAlignment="Center" Margin="15">
+                <Label Content="Добавление пользователя"/>
+                <TextBox x:Name="log" md:HintAssist.Hint="Введите логин" />
+                <PasswordBox x:Name="pass" md:HintAssist.Hint="      Введите пароль"/>
+                <Button Content="Добавить" Click="Button_Click" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
