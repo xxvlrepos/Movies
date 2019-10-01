@@ -136,16 +136,13 @@
     <Compile Include="Migrations\201909291849066_test7.Designer.cs">
       <DependentUpon>201909291849066_test7.cs</DependentUpon>
     </Compile>
-<<<<<<<<< Temporary merge branch 1
+
+
     <Compile Include="Migrations\201909300021262_test71.cs" />
     <Compile Include="Migrations\201909300021262_test71.Designer.cs">
       <DependentUpon>201909300021262_test71.cs</DependentUpon>
-=========
-    <Compile Include="Migrations\201909300022515_MigrateDB.cs" />
-    <Compile Include="Migrations\201909300022515_MigrateDB.Designer.cs">
-      <DependentUpon>201909300022515_MigrateDB.cs</DependentUpon>
->>>>>>>>> Temporary merge branch 2
     </Compile>
+
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="View\Admin\ActorsPage.xaml.cs">
       <DependentUpon>ActorsPage.xaml</DependentUpon>
@@ -183,6 +180,9 @@
     </Compile>
     <Compile Include="View\User\FilmsPage.xaml.cs">
       <DependentUpon>FilmsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\MainFilmsPage.xaml.cs">
+      <DependentUpon>MainFilmsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\User\UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
@@ -231,6 +231,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\User\MainFilmsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\User\UserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -271,14 +275,11 @@
     <EmbeddedResource Include="Migrations\201909291849066_test7.resx">
       <DependentUpon>201909291849066_test7.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<<<< Temporary merge branch 1
+
     <EmbeddedResource Include="Migrations\201909300021262_test71.resx">
       <DependentUpon>201909300021262_test71.cs</DependentUpon>
-=========
-    <EmbeddedResource Include="Migrations\201909300022515_MigrateDB.resx">
-      <DependentUpon>201909300022515_MigrateDB.cs</DependentUpon>
->>>>>>>>> Temporary merge branch 2
     </EmbeddedResource>
+
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -313,6 +314,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Безымянный.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="huevina.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\huevina.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
