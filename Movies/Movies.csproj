@@ -136,9 +136,15 @@
     <Compile Include="Migrations\201909291849066_test7.Designer.cs">
       <DependentUpon>201909291849066_test7.cs</DependentUpon>
     </Compile>
+<<<<<<<<< Temporary merge branch 1
     <Compile Include="Migrations\201909300021262_test71.cs" />
     <Compile Include="Migrations\201909300021262_test71.Designer.cs">
       <DependentUpon>201909300021262_test71.cs</DependentUpon>
+=========
+    <Compile Include="Migrations\201909300022515_MigrateDB.cs" />
+    <Compile Include="Migrations\201909300022515_MigrateDB.Designer.cs">
+      <DependentUpon>201909300022515_MigrateDB.cs</DependentUpon>
+>>>>>>>>> Temporary merge branch 2
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="View\Admin\ActorsPage.xaml.cs">
@@ -265,8 +271,13 @@
     <EmbeddedResource Include="Migrations\201909291849066_test7.resx">
       <DependentUpon>201909291849066_test7.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<<<< Temporary merge branch 1
     <EmbeddedResource Include="Migrations\201909300021262_test71.resx">
       <DependentUpon>201909300021262_test71.cs</DependentUpon>
+=========
+    <EmbeddedResource Include="Migrations\201909300022515_MigrateDB.resx">
+      <DependentUpon>201909300022515_MigrateDB.cs</DependentUpon>
+>>>>>>>>> Temporary merge branch 2
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
