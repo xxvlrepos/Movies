@@ -14,7 +14,7 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <ListView HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource itemstyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" >
+        <ListView HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource itemstyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.ScrollChanged="List_ScrollChanged">
             <ListBox.Resources>
                 <Style TargetType="ListBoxItem">
                     <Style.Triggers>
