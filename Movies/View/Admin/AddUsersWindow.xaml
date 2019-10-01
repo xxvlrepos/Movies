@@ -4,15 +4,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
-      Title="AddUserPage" Height="202.5" Width="227.167">
+      Title="AddUserPage" Height="142.5" Width="229.834">
 
     <Grid Background="#FFF3F3F3">
-        <Label Content="Логин:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,28,0,0"/>
-        <Label Content="Пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,56,0,0"/>
-        <TextBox   x:Name="log" HorizontalAlignment="Left" Height="25" Margin="93,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98"/>
-        <TextBox   x:Name="pass" HorizontalAlignment="Left" Height="25" Margin="93,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98"/>
-        <Label Content="Права администратора:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,87,0,0"/>
-        <Button Content="Добавить" HorizontalAlignment="Left" Margin="34,120,0,0" VerticalAlignment="Top" Width="155" Click="Button_Click"/>
-        <RadioButton x:Name="adm" Content="" HorizontalAlignment="Left" Margin="176,94,0,0" VerticalAlignment="Top" />
+        <Label Content="Права администратора:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,22,0,0"/>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="37,55,0,0" VerticalAlignment="Top" Width="155" Click="Button_Click"/>
+        <RadioButton x:Name="adm" Content="" HorizontalAlignment="Left" Margin="179,29,0,0" VerticalAlignment="Top" />
     </Grid>
 </Window>
