@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Movies.View.User"
       mc:Ignorable="d" 
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="420" d:DesignWidth="790"
       Title="FilmsPage">
     <Page.Resources>
@@ -15,6 +16,8 @@
     </Page.Resources>
     <Grid>
         <ListView HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource itemstyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.ScrollChanged="List_ScrollChanged">
+    <Grid Background="#FFD1CFCF">
+        <ListView HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource itemstyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" Margin="0,2,0,-1" >
             <ListBox.Resources>
                 <Style TargetType="ListBoxItem">
                     <Style.Triggers>
@@ -30,46 +33,19 @@
                         <Grid>
                             <DockPanel Grid.Row="0">
                                 <StackPanel>
+                                    
                                     <TextBlock FontSize="20" Text="{Binding Path=Name}" />
                                     <TextBlock FontSize="16" Text="{Binding Producers.GetProducerFio}"/>
                                     <DockPanel>
                                         <Image HorizontalAlignment="Center" Margin="25, 10" MaxWidth="800" Source="{Binding Path=Poster}" />
                                     </DockPanel>
-                                    <!--<StackPanel Orientation="Horizontal">
-                                        <Label Content="Рейтинг: "/>
-                                        <Label Content="4"/>
-                                    </StackPanel>-->
                                 </StackPanel>
                             </DockPanel>
-
                         </Grid>
-
                     </Border>
-                    <!--<Border BorderBrush="Black" BorderThickness="1">
-                        <Label Content="hello world"/>
-                        -->
-                    <!--<Grid>
-                            <TextBlock FontSize="20" Text="{Binding Path=Name}" />
-                            <TextBlock FontSize="16" Text="{Binding Producers.GetProducerFio}"/>
-                            <Image HorizontalAlignment="Center" Margin="25, 10" Height="auto" MinWidth="150" MaxWidth="800" Source="{Binding Path=Poster}" />
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Рейтинг: "/>
-                                <Label Content="4"/>
-                            </StackPanel>
-                        </Grid>-->
-                    <!--<StackPanel>
-                            <TextBlock FontSize="20" Text="{Binding Path=Name}" />
-                            <TextBlock FontSize="16" Text="{Binding Producers.GetProducerFio}"/>
-                            <Image HorizontalAlignment="Center" Margin="25, 10" Height="auto" MinWidth="150" MaxWidth="800" Source="{Binding Path=Poster}" />
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Рейтинг: "/>
-                                <Label Content="4"/>
-                            </StackPanel>
-                        </StackPanel>-->
-                    <!--
-                    </Border>-->
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListView>
+
     </Grid>
 </Page>

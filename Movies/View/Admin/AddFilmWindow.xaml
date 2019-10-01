@@ -8,11 +8,6 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Окно добавления фильма" Height="600" Width="800" MinWidth="600" MinHeight="450" WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <!--<Style BasedOn="{StaticResource MaterialDesignTextBox}"
-           TargetType="{x:Type ComboBox}">
-            <Setter Property="Padding" Value="10 0" />
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        </Style>-->
         <Style TargetType="Label">
             <Setter Property="Width" Value="150"/>
             <Setter Property="FontSize" Value="14"/>
@@ -112,17 +107,5 @@
             </DockPanel>
             <Button Content="Добавить фильм" Click="AddFilm_Click" VerticalAlignment="Bottom"/>
         </Grid>
-        <!--<Label  Content="Продюсер:" HorizontalAlignment="Left" Height="29" Margin="30,60,0,0" VerticalAlignment="Top" Width="105"/>
-        <Label  Content="Год:" HorizontalAlignment="Left" Height="29" Margin="30,90,0,0" VerticalAlignment="Top" Width="105"/>
-        <Label x:Name="Genre" Content="Жанр:" HorizontalAlignment="Left" Height="29" Margin="30,120,0,0" VerticalAlignment="Top" Width="105"/>
-        <Label x:Name="Poster" Content="Постер:" HorizontalAlignment="Left" Height="29" Margin="30,150,0,0" VerticalAlignment="Top" Width="105"/>
-        <Label x:Name="Country" Content="Страна:" HorizontalAlignment="Left" Height="29" Margin="30,180,0,0" VerticalAlignment="Top" Width="105"/>
-        <Label x:Name="Rating" Content="Рейтинг:" HorizontalAlignment="Left" Height="29" Margin="30,210,0,0" VerticalAlignment="Top" Width="105"/>
-
-        <TextBox x:Name="Producer" HorizontalAlignment="Left" Height="29" Margin="164,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="107"/>
-        <DatePicker x:Name="Year" HorizontalAlignment="Left" Height="23" Margin="165,90,0,0" VerticalAlignment="Top" Width="108"/>
-        <ComboBox HorizontalAlignment="Left" Height="19" Margin="168,157,0,0" VerticalAlignment="Top" Width="110"/>
-        <Image HorizontalAlignment="Left" Height="130" Margin="2,144,0,0" VerticalAlignment="Top" Width="132" Grid.Column="1"/>
-        <ComboBox HorizontalAlignment="Left" Height="19" Margin="168,130,0,0" VerticalAlignment="Top" Width="110"/>-->
     </Grid>
 </Window>
