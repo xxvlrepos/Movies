@@ -31,7 +31,7 @@
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid SizeChanged="Page_SizeChanged" VerticalAlignment="Top" Grid.Column="0"  x:Name="ActorsGrid" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="False" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" SelectionChanged="ActorsGrid_SelectionChanged">
+        <DataGrid Grid.Column="0"  x:Name="ActorsGrid" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="False" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" SelectionChanged="ActorsGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Номер" Binding="{Binding IdActor}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
                 <DataGridTextColumn Width="*" Header="Имя" Binding="{Binding Name}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>

@@ -23,7 +23,7 @@ namespace Movies.View.User
         public UserWindow(Users user)
         {
             InitializeComponent();
-            frame.Navigate(new FilmsPage(user));
+            frame.Navigate(new MainFilmsPage(user));
         }
     }
 }

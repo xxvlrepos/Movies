@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Movies.DataModel;
+using Movies.View.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,14 @@ namespace Movies.View.Admin
     /// </summary>
     public partial class AdminWindow : Window
     {
-        public AdminWindow()
+        Users user;
+
+        public AdminWindow(Users user)
         {
             InitializeComponent();
+
+            this.user = user;
+            frame.Content = new MainFilmsPage(user);
         }
 
         private void Films_click(object sender, RoutedEventArgs e)
@@ -40,8 +47,13 @@ namespace Movies.View.Admin
         }
 
         private void Producers_Click(object sender, RoutedEventArgs e)
-        {
+        {            
             frame.Navigate(new ProducerPage());
+        }
+
+        private void MainPage_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new MainFilmsPage(user));
         }
     }
 }

@@ -138,10 +138,5 @@ namespace Movies.View.Admin
         }
 
         #endregion
-
-        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            ActorsGrid.MaxHeight = this.WindowHeight - 80;
-        }
     }
 }

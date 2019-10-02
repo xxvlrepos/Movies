@@ -211,7 +211,7 @@ namespace Movies.LogicApp
 
         public override void ShowWindow(Users user)
         {
-            Window window1 = new View.Admin.AdminWindow();
+            Window window1 = new View.Admin.AdminWindow(user);
             window1.Show();
         }
 
