@@ -28,6 +28,39 @@ namespace Movies.LogicApp
 
         #region Секция методов для работы с БД
         
+        // Метод, который получает список годов фильмов, которые были добавлены в бд (для вывода)
+        public async Task<List<int>> GetYears()
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    using (UserDB db = new UserDB())
+                    {
+                        var dates = from p in db.Films
+                                    group p by p.Year.Value.Year into g
+                                    orderby g.Key descending
+                                    select new { Date = g.Key };
+
+                        List<int> list = new List<int>();
+
+                        foreach (var item in dates)
+                        {
+                            list.Add(item.Date);
+                        }
+                        //return dates.GroupBy(s => dates).ToList();
+                        return list;
+                    }
+                });
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
+        }
+
         // Метод, который получает список жанров.
         public async Task<List<Genres>> GetGenresAsync()
         {
@@ -146,7 +179,6 @@ namespace Movies.LogicApp
             return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
         }
 
-
         /// <summary>
         /// Метод который загружает весь список фильмов по жанрам с пропусками
         /// </summary>
@@ -155,7 +187,7 @@ namespace Movies.LogicApp
         /// <param name="take">Берет количество фильмов в выборке</param>
         /// <param name="LoadAllData">Загрузка всей инфы (Постеры, комменты, инфа о фильме)</param>
         /// <returns>Коллекцию фильмов</returns>
-        public async Task<List<Films>> GetFilmsAsync(byte idStatusGenre, int skip = 0, int take = 0, bool LoadAllData = false)
+        public async Task<List<Films>> GetFilmsAsync(int idStatusGenre, int skip = 0, int take = 0, bool LoadAllData = false)
         {
             try
             {
@@ -208,6 +240,30 @@ namespace Movies.LogicApp
 
                         // Если выбрали загрузку всей инфы, то вернуть всю инфу
                         return db.Films.Where(i => i.IdGenre == idStatusGenre).Include(i => i.Genres).Include(i => i.Producers).ToList();
+
+                    }
+                });
+            }
+            catch (Exception)
+            {
+                // Обработать какую-нибудь ошибку (если она будет по ходу написания программы)
+            }
+
+            return null; // Возвращаем null, в случае, если пользователи не найдены или ошибка
+        }
+
+        public async Task<List<Films>> GetFilmsAsync(string name)
+        {
+            try
+            {
+                return await Task.Run(() =>
+                {
+                    using (UserDB db = new UserDB())
+                    {
+                        //var films = from f in db.Films
+                        //            where f.Name.Contains(name);
+
+                        return db.Films.Where(p => p.Name.Contains(name)).Include(i => i.Genres).Include(i => i.Producers).ToList();
 
                     }
                 });

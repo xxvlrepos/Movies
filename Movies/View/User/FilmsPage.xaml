@@ -15,9 +15,15 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <ListView HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource itemstyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.ScrollChanged="List_ScrollChanged">
-    <Grid Background="#FFD1CFCF">
-        <ListView HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource itemstyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" Margin="0,2,0,-1" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Grid.ColumnSpan="3">
+            <Button Click="Button_Click" Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Go Back" />
+            <TextBox x:Name="resultbox" Margin="30 0" FontSize="24" IsEnabled="False" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+        </DockPanel>
+        <ListView Grid.Column="1" Grid.Row="1" SelectionMode="Extended" HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource itemstyle}" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" x:Name="list" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.ScrollChanged="List_ScrollChanged">
             <ListBox.Resources>
                 <Style TargetType="ListBoxItem">
                     <Style.Triggers>
@@ -29,23 +35,34 @@
             </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1">
-                        <Grid>
-                            <DockPanel Grid.Row="0">
-                                <StackPanel>
-                                    
-                                    <TextBlock FontSize="20" Text="{Binding Path=Name}" />
-                                    <TextBlock FontSize="16" Text="{Binding Producers.GetProducerFio}"/>
-                                    <DockPanel>
-                                        <Image HorizontalAlignment="Center" Margin="25, 10" MaxWidth="800" Source="{Binding Path=Poster}" />
-                                    </DockPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0.8">
+                            <StackPanel>
+                                <Label FontSize="20" HorizontalContentAlignment="Center" Content="{Binding Path=Name}" />
+                                <Image Stretch="Fill" HorizontalAlignment="Center" Height="300" MaxWidth="500" Margin="20, 0" Source="{Binding Path=Poster}" />
+                                <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
+                                    <Label HorizontalContentAlignment="Center" Width="100" Content="Жанр: "/>
+                                    <Label Content="{Binding Path=Genres.GenreName}"/>
                                 </StackPanel>
-                            </DockPanel>
-                        </Grid>
-                    </Border>
+                                <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
+                                    <Label HorizontalContentAlignment="Center" Width="100" Content="Режиссер: "/>
+                                    <Label Content="{Binding Path=Producers.GetProducerFIO}"/>
+                                </StackPanel>
+                                <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
+                                    <Label HorizontalContentAlignment="Center" Width="100" Content="Дата выхода: "/>
+                                    <Label Content="{Binding Path=DateFilm}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListView>
-
     </Grid>
+    
 </Page>

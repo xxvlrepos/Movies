@@ -33,7 +33,7 @@
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid SizeChanged="ActorsGrid_SizeChanged" MaxHeight="450" VerticalAlignment="Top" Grid.Column="0"  x:Name="ActorsGrid" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="False" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" SelectionChanged="ActorsGrid_SelectionChanged">
+        <DataGrid Grid.Column="0"  x:Name="ActorsGrid" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="False" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" SelectionChanged="ActorsGrid_SelectionChanged">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="HorizontalAlignment" Value="Center"/>

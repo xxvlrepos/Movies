@@ -1,5 +1,6 @@
 ﻿using Movies.DataModel;
 using Movies.LogicApp;
+using Movies.View.User.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,22 +30,71 @@ namespace Movies.View.User
         int filmcount = 0; // Количество фильмов
         int loadedfilm = 0; // Количество загруженных фильмов
         bool filmsloading = false; // Загружаются ли фильмы
+        MainFilmsPageModel model;
         CommonLogic logic;
         Users user;
+        private delegate Task<List<Films>> method();
+        method loading;
 
-        public FilmsPage(Users user)
+        public FilmsPage(Users user, MainFilmsPageModel model)
         {
                        
             InitializeComponent();
 
-            logic = new CommonLogic();
-            filmcount = logic.GetCountFilm();
-            this.user = user;
-            films = new List<Films>();
-
+            InitializationData(user, model);
             load();
         }
 
+        // Метод для инициализации данных
+        private void InitializationData(Users user, MainFilmsPageModel model)
+        {
+            this.model = model;
+            logic = new CommonLogic();
+            filmcount = logic.GetCountFilm(model.IdGenre);
+            this.user = user;
+            films = new List<Films>();
+
+            // Если ввели название фильма, то выведи в текст бокс
+            if (!string.IsNullOrWhiteSpace(model.FilmName))
+                resultbox.Text = model.FilmName;
+
+            InitDelegat(); // Инициализируем ссылку делегата на метод
+        }
+
+        #region Методы для делегата
+
+        private void InitDelegat()
+        {
+            if (!string.IsNullOrWhiteSpace(model.FilmName))
+            {
+                loading = OnlyFilmName;
+                return;
+            }
+
+            if (model.IdGenre == 0)
+            {
+                loading = GetAllFilmsNotGenre;
+            }
+            else
+                loading = GetAllFilmsGenre;
+        }
+
+        private Task<List<Films>> OnlyFilmName()
+        {
+            return logic.GetFilmsAsync(model.FilmName);
+        }
+
+        private Task<List<Films>> GetAllFilmsNotGenre()
+        {
+            return logic.GetFilmsAsync(loadedfilm, 5, true);
+        }
+
+        private Task<List<Films>> GetAllFilmsGenre()
+        {
+            return logic.GetFilmsAsync(model.IdGenre, loadedfilm, 5, true);
+        }
+
+        #endregion
 
 
         // Метод для загрузки данных с БД
@@ -55,7 +105,7 @@ namespace Movies.View.User
             {
                 filmsloading = true;
 
-                var loadingfilms = await logic.GetFilmsAsync(1, loadedfilm, 5, true);
+                List<Films> loadingfilms = await loading();
 
                 foreach (var film in loadingfilms)
                     films.Add(film);
@@ -67,6 +117,8 @@ namespace Movies.View.User
                 loadedfilm += 5;
             }
         }
+
+        #region WPF события
 
         protected void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -117,9 +169,13 @@ namespace Movies.View.User
 
         #endregion
 
-        private void List_SourceUpdated(object sender, DataTransferEventArgs e)
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("loaded");
+            NavigationService.GoBack();
         }
+
+        #endregion
+
     }
 }

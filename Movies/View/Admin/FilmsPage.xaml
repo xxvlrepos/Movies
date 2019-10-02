@@ -16,7 +16,7 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <DataGrid x:Name="FilmsGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="381" IsReadOnly="True" CanUserDeleteRows="True" VerticalAlignment="Top" Width="788" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" Grid.RowSpan="2">
+        <DataGrid x:Name="FilmsGrid" AutoGenerateColumns="False" IsReadOnly="True" CanUserDeleteRows="True" Background="#FFF3F3F3" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" Grid.RowSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название фильма" Width="6*" Binding="{Binding Name}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
                 <DataGridTextColumn Header="Режиссер" Width="4*" Binding="{Binding Producers.GetProducerFIO}" ElementStyle="{StaticResource DGC_NumericColumnStyle}"/>
