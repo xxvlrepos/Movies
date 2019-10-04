@@ -37,8 +37,6 @@ namespace Movies.View.Admin
         private async void LoadDB()
         {
             FilmsGrid.ItemsSource = await logic.GetFilmsAsync(take: logic.GetCountFilm(maxcount: true));
-
-            int a = 5;
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
