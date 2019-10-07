@@ -33,8 +33,6 @@ namespace Movies.View.User
         MainFilmsPageModel model;
         CommonLogic logic;
         Users user;
-        private delegate Task<List<Films>> method();
-        method loading;
 
         public FilmsPage(Users user, MainFilmsPageModel model)
         {
@@ -50,52 +48,14 @@ namespace Movies.View.User
         {
             this.model = model;
             logic = new CommonLogic();
-            filmcount = logic.GetCountFilm(model.IdGenre);
+            filmcount = logic.GetCountFilm(model.FilmName, model.FilmCounty, model.FilmYear, model.IdGenre);
             this.user = user;
             films = new List<Films>();
 
             // Если ввели название фильма, то выведи в текст бокс
             if (!string.IsNullOrWhiteSpace(model.FilmName))
                 resultbox.Text = model.FilmName;
-
-            InitDelegat(); // Инициализируем ссылку делегата на метод
         }
-
-        #region Методы для делегата
-
-        private void InitDelegat()
-        {
-            if (!string.IsNullOrWhiteSpace(model.FilmName))
-            {
-                loading = OnlyFilmName;
-                return;
-            }
-
-            if (model.IdGenre == 0)
-            {
-                loading = GetAllFilmsNotGenre;
-            }
-            else
-                loading = GetAllFilmsGenre;
-        }
-
-        private Task<List<Films>> OnlyFilmName()
-        {
-            return logic.GetFilmsAsync(model.FilmName);
-        }
-
-        private Task<List<Films>> GetAllFilmsNotGenre()
-        {
-            return logic.GetFilmsAsync(loadedfilm, 5, true);
-        }
-
-        private Task<List<Films>> GetAllFilmsGenre()
-        {
-            return logic.GetFilmsAsync(model.IdGenre, loadedfilm, 5, true);
-        }
-
-        #endregion
-
 
         // Метод для загрузки данных с БД
         async void load()
@@ -105,7 +65,7 @@ namespace Movies.View.User
             {
                 filmsloading = true;
 
-                List<Films> loadingfilms = await loading();
+                List<Films> loadingfilms = await logic.GetFilmsAsync(loadedfilm, 5, model.FilmName, model.FilmCounty, model.FilmYear, model.IdGenre);
 
                 foreach (var film in loadingfilms)
                     films.Add(film);

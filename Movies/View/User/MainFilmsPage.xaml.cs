@@ -46,7 +46,7 @@ namespace Movies.View.User
         private async void LoadStartData()
         {
             genrescb.ItemsSource = await logic.GetGenresAsync();
-            datescb.ItemsSource = await logic.GetYears();
+            datescb.ItemsSource = await logic.GetYears();            
 
             countycb.ItemsSource = new List<string>() // Задаем страны
                 {
@@ -62,6 +62,24 @@ namespace Movies.View.User
         #endregion
 
         #region События WPF
+
+        // Событие пкм на ComboBoxes для сброса значения
+        private void Datescb_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            datescb.SelectedItem = null;
+        }
+
+        // Событие пкм на ComboBoxes для сброса значения
+        private void Genrescb_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            genrescb.SelectedItem = null;
+        }
+
+        // Событие пкм на ComboBoxes для сброса значения
+        private void Countycb_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            countycb.SelectedItem = null;
+        }
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -111,23 +129,5 @@ namespace Movies.View.User
 
         #endregion
 
-
-        // Событие пкм на ComboBoxes для сброса значения
-        private void Datescb_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            datescb.SelectedItem = null;
-        }
-
-        // Событие пкм на ComboBoxes для сброса значения
-        private void Genrescb_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            genrescb.SelectedItem = null;
-        }
-
-        // Событие пкм на ComboBoxes для сброса значения
-        private void Countycb_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            countycb.SelectedItem = null;
-        }
     }
 }
